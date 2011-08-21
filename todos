@@ -1,0 +1,160 @@
+Notes and to dos
+1. How to fire up autotest
+   just type autotest
+2. start rails server
+   rails s
+3. The console itself is built on top of interactive Ruby (irb), and thus has access to the full power of Ruby. 
+4. Ruby hashes return nil for nonexistent keys
+5. learn about creating a new git branch
+6. git branch to check which branches are available and which branch you are on 
+7. git checkout master
+   git merge static-pages 
+8. git checkout -b modify-README
+   -- both creates a new branch and switch to it
+9. When building web applications, it is often useful to get a high-level overview of the user interface as early as possible.
+10. 
+
+the html output for chapter five is:
+
+<!DOCTYPE html> 
+<html> 
+  <head> 
+    <title>Ruby on Rails Tutorial Sample App | Help</title> 
+    <meta name="csrf-param" content="authenticity_token"/> 
+<meta name="csrf-token" content="888TSS4KQ4UZXTjIAer7sLI30qzYwaaCoNfbdHpipq4="/> 
+    <!-- [if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--> 
+    <link href="/stylesheets/blueprint/screen.css?1308437804" media="screen" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/blueprint/print.css?1308437804" media="print" rel="stylesheet" type="text/css" /> 
+    <!--[if lt IE 8]><link href="/stylesheets/blueprint/ie.css?1308437804" media="screen" rel="stylesheet" type="text/css" /><![endif]--> 
+    <link href="/stylesheets/custom.css?1308439682" media="screen" rel="stylesheet" type="text/css" /> 
+  </head> 
+  <body> 
+    <div class="container"> 
+      <header> 
+        <img alt="Sample App" class="round" src="/images/logo.png?1308437804" /> 
+        <nav class="round"> 
+          <ul> 
+            <li><a href="#">Home</a></li> 
+            <li><a href="#">Help</a></li> 
+            <li><a href="#">Sign in</a></li> 
+          </ul> 
+        </nav> 
+      </header> 
+      <section class="round"> 
+        <h1>Help</h1> 
+<p> 
+  Get help on Ruby on Rails Tutorial at the
+  <a href="http://railstutorial.org/help">Rails Tutorial help page</a>.
+  To get help on this sample app, see the
+  <a href="http://railstutorial.org/book">Rails Tutorial book</a>.
+</p> 
+ 
+      </section> 
+    </div> 
+  </body> 
+</html> 
+11. If you would like to include two CSS classes, separate them by spaces 
+12. CSS elements should be semantic and should have structural meanings in the English language. 
+13. -moz-border-radius works for Firefox, -webki-border-radius works for firefox, and border-raidus works for Google Chrome
+14. We put utility partials in the "shared" directory, and put partials that are literally on every page in the "layouts" director. 
+15. The convention of having a "succession" of rules, with subsequent rules possibly overridng previous ones, is what puts the "cascading" in cascading style sheets
+16. <%= link_to "About", '#' %> translates into 
+    <a href="#">About</a> in html
+17. The power of indirection in about_path - we would use this variable instead of the hardcoded value. So that when about_path changes, we just need to change the value of about_path and not change anywhere where about_path is used. 
+18. In order to merge say filling-in-layouts, we must first add and commit, then switch to master, and THEN merge.
+    git add .
+    git commit -m "Finished layout and routes"
+    git co master
+    git merge filling-in-layout
+19. Integration tests give us a way to simulate a browser accessing our application and thereby test it from end to end. 
+20. We want to test URLs like / and /about, but you can't "get" these URLs inside a controller test - controller tests only know about URLs definde for that exact controller, In contrast, integration tests are bound by no such restriction, since they are designed as "integrated tests" for the whole application and henc can get any page they want. 
+21. Want to map / to Home, /about to About (initially /pages/about), /help to Help, and /contact to Contact.
+22. How to run exect bundle spec integration tests WITHOUT autotest (since integration tests are slow)
+23. What to do when you want to start up your dev environment
+    cd sample_app
+    mvim . 
+    Command+T to create a new console
+    cd sample_app
+    autotest
+    Command+T
+    cd sample_app
+    rails s
+24. match '/about', :to=>'pages#about' matches '/about' and routes it to the "about" action in the Pages controller. 
+25. match '/about' also automatically creates "named routes" for use in the controllers and views 
+    named routes look like:
+       about_path => '/about'
+       about_url => 'http://localhost:3000/about'
+
+26. rspect spec/ checks the spec/ directory
+27. git removal would not only remove the file but also tell Git about the removal 
+    git rm public/index.html
+    git commit -am "Removed default Rails page"
+28. Common web convention is to link the logo image to the Home page as well. 
+29. when you create a controller, you say rails generate controller Users new where Users is the name of the controller and new is the name of the action. 
+30. If you are using spec, make you (with convention) you delete spec/views and spec/helpers by
+    rm -rf spec/views
+    rm -rf spec/helpers
+31. bundle exec rspec spec/
+32. By default RSpec just tests actions inside a controller test; if we want it to also render the views, we have to tell it explicitly via the second line. 
+33. As mentioned in Section 3.3.1, have_selector needs the render_views line since it tests the view along with the action
+34. Being able to hit pages in multiple controllers is one of the advantages of using integration tests. 
+35. Our eventual goal for the user profile pages is to show the user's profile image, basic user data, and a list of microposts. 
+36. The first step in signing up users is to make a data structure to capture and store their information. 
+37. Design goal to make all the code database-independent is a worthy goal in general. 
+38. Model solves the problem of "persistence." 
+39. In contrast, when using Rails to model users we don't need to identify the attributes explicitly. 
+40. How to create a model called User with two attributes (remember model is singular)
+   rails generate model User name:string email:string
+41. Controllers are plural, Users controller, and User model
+42. rails generate controller Pages home contact 
+43. Migrations provide a way to alter the structure of the database incrementally, so that our data model can adapt to changing requirements. 
+44. Use
+   bundle exec rake db:rollback 
+   instead of the simple
+   rake db:rollback
+45. Remember the workflow: the User model generation generated a migration file, the result of this migration updated the file development.sqlite3 by creating the users table with columns id, name, email, created_at, and updated_at. 
+46. How to Annotate-models
+   add gem 'annotate-models', '1.0.4' to group :development do
+   and then run
+   bundle install
+47. Learn to jump quickly to a tab in GVIM
+48.Using attr_accessible is important for preventing a mass assignment vulnerability, a distressingly common and often serious security hole in many rails applications.
+49. If you don't want to make any changes to the database, we could start the console in a "sandbox." 
+50. When working at the console, it's useful to keep an eye on the development log, which records the actual "low-level" SQL statements being issued by Active Record. 
+51. Recommend keeping a terminal window for tailing the log whenever working at the console. 
+52. User in Listing 4.8 takes an "initialization hash" to instantiate the User object. ActiveRecord allows objects to be initialized in the same way. 
+53. It's often convenient to make and save a model in two steps. 
+54. You do NOT need a space between =>. 
+55. User.create, instead of returning true or false, return the User object itself, which we can optionally assign to a variable. 
+56. After you destroy an User object, it returns the object in question, and that object actually still exists in memory. 
+57.Interesting SQL commands
+   DELETE FROM "users" WHERE "users"."id" = 3
+   INSERT INTO "users" ("name", "email", "created_at", "updated_at" ) VALUES ('Foo', 'foo@bar.com', '2011-06-22 05:14:54.448654', '2011-06-22 05:14:54.448654')
+58. Active Record also allows us to find users by specific attributes. 
+59. SELECT "users".* FROM "users" WHERE "users"."email" = 'perryz@payscale.com' LIMIT 1
+60. User.first is equivalent to the SQL statement
+   SELECT 'users'.* FROM "users" LIMIT 1
+61. User.all is equivalent to the SQL statement 
+   SELECT 'users'.* FROM "users"
+62. UPDATE "users" SET "email" = 'perryz@underpaid.com', "updated_at" = '2011-06-22 05:28:01.702884' WHERE "users"."id" = 1
+63. Reload reloads the object based on the database information. 
+64. There is another way to update attributes. 
+    user.update_attributes(:name=>"The Dude", :email=>"duded@abides.org")
+65. update_attributes accepts a hash of attributes and on success performs both the update and the save in one step. 
+66. If you have defined some attributes as accessible using attr_accessible, "only" those attributes can be modified using the update_attributes 
+67. If you find the git push doesn't work, make sure you switch back to master branche.
+68. Use reload function to reload the objcet based on the database information
+   user.reload.email
+69. User object responds to the "valid?" boolean method. RSpec adopts the useful convention of allowing us to test "any" boolean method by dropping the question mark and prepending be_.
+70. The solution to uniqueness problem in database is straightforward to implement; we just need to enforce uniquness at the database level as well. Our method is to create a database "index" on the email column, and then require that the index be unique. 
+71. Gentle introduction to the REST style of organizing the actions for our site's users. 
+72. In order to make a page to view a user, we'll use the User __model__ to put a user into the database, make a __view__ to display some user information, and then add an action to the Users __controller__ to handle the browser request. 
+73. bundle exec rake db:reset - clear out any old users from the database
+74. When creating an User, if the hash contains more attributes than the Model needs, the model would happily accept them. For instance, 
+user = User.new(:name => "perry", :email=>"hi@payscale.com", :something=>"blah", :extra_stuff=>"blah")
+     is a valid statement. 
+75. rails generate migration add_password_to_users encrypted_password:string
+76. bundle exec rspec spec/models/user_spec.rb -e "should have an encrypted password attribute"
+77. 

@@ -1,4 +1,4 @@
-<footer>
+<!-- <footer>
   <nav class="round">
     <ul>
       <li><%= link_to "About", about_path %></li>
@@ -8,3 +8,13 @@
     </ul>
   </nav>
 </footer>
+-->
+<div data-role="footer" data-theme="b">
+	<div data-role="navbar">
+		<ul>
+	   <li><%= link_to "About", about_path, "data-role"=>"button", :class => "ui-btn-left" %></li>
+	   <li><%= link_to "Contact", contact_path, "class" => "ui-btn-center" %></li>
+	   <li><%= link_to "Facebook", "http://www.facebook.com/groups/214193508621459/", "class" => "ui-btn-right" %></li>
+		</ul>
+	</div>
+</div>

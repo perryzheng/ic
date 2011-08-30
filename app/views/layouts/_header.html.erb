@@ -1,5 +1,4 @@
-<header>
-  <%= link_to logo, root_path %>
+<!-- <header>
   <nav class="round">
     <ul>
       <li><%= link_to "Home", root_path %></li>
@@ -8,3 +7,12 @@
     </ul>
   </nav>
 </header>
+-->
+<div data-role="header" data-theme="b">
+	<!--<h1><%= link_to logo, root_path %></h1>-->
+	<%= link_to "Home", root_path, "class" => "ui-btn-left", "data-icon" => "home" %>
+	<h1>Soul Unity</h1>
+	<%= link_to "Sign in", signup_path, "class" => "ui-btn-right", "data-icon"=>"sign-in" %>
+</div>
+
+

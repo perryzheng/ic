@@ -136,10 +136,7 @@ div.field, div.actions {
 }
 
 .field_with_errors {
-	margin-top: 10px;
-	padding: 2px;
 	background-color: red;
-	display: table;
 }
 
 .field_with_errors label {
@@ -172,6 +169,6 @@ div.field, div.actions {
 }
 
 #error_explanation ul li {
-	font-size: 12px;
+	font-size: 1em;
 	list-style: square;
 }

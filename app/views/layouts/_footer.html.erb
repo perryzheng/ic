@@ -4,6 +4,10 @@
 	   <li><%= link_to "About", about_path, "data-role"=>"button", :class => "ui-btn-left" %></li>
 	   <li><%= link_to "Contact", contact_path, "class" => "ui-btn-center" %></li>
 	   <li><%= link_to "Facebook", "http://www.facebook.com/groups/214193508621459/", "class" => "ui-btn-right" %></li>
+		<% if signed_in? %>
+		<li><%= link_to "Sign out", signout_path, "data-role"=>"button", :class => "ui-btn-left" %></li>
+		<% else %>
+		<% end %>	
 		</ul>
 	</div>
 </div>

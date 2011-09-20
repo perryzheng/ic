@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-      flash[:success] = "Welcome to Soul Unity, #{@user.name}!"
+      flash[:success] = "Welcome to International Community, #{@user.name}!"
       redirect_to @user
     else
       @user.password = ""

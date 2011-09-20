@@ -144,20 +144,20 @@ div.field, div.actions {
 }
 
 #error_explanation {
-	width: 400px;
+	width: 90%;
 	border: 2px solid red;
-	padding: 7px;
-	padding-bottom: 12px;
-	margin-bottom: 20px;
+	padding: .8em;
+	padding-bottom: 1em;
+	margin-bottom: 2em;
 	background-color: #f0f0f0;
 }
 
 #error_explanation h2 {
 	text-align: left;
 	font-weight: bold;
-	padding: 5px 5px 5px 15px;
-	font-size: 12px;
-	margin: -7px -7px 0px -7px;
+	padding: .5em .5em .5em 1.5em;
+	font-size: 1em;
+	margin: -.7em -.7em 0em -.7em;
 	background-color: #c00;
 	color: #fff;
 }

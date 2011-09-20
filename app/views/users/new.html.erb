@@ -2,17 +2,17 @@
 
 <%= form_for(@user) do |f|	%>
 	<%= render 'shared/error_messages' %>
-		<p><%= f.label :name %><br />
-		<%= f.text_field :name %></p>
+	<p><%= f.label :name %><br />
+	<%= f.text_field :name %></p>
 
-		<p><%= f.label	:email %><br />
-		<%= f.text_field :email %></p>
+	<p><%= f.label	:email %><br />
+	<%= f.text_field :email %></p>
 
-		<p><%= f.label :password %> <br />
-		<%= f.password_field :password %></p>
+	<p><%= f.label :password %><br />
+	<%= f.password_field :password %></p>
 		
-		<p><%= f.label :password_confirmation, "Confirmation" %><br />
-		<%= f.password_field :password_confirmation %></p>
+	<p><%= f.label :password_confirmation, "Confirmation" %><br />
+	<%= f.password_field :password_confirmation %></p>
 
-		<%= f.submit "Sign up" %>
+	<%= f.submit "Sign up" %>
 <% end %>

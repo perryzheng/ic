@@ -195,6 +195,25 @@ describe UsersController do
         flash[:success].should =~ /updated/
       end
     end
+  end
+
+  describe "authentication of edit/update pages" do
+    describe "for non-signed-in users" do
+    
+      before(:each) do
+        @user = Factory(:user)
+      end
+    
+      it "should deny access to 'edit'" do
+        get :edit, :id => @user
+        response.should redirect_to(signin_path)
+      end
+      
+      it "should require matching users for 'update'" do
+        put :update, :id => @user, :user => {}
+        response.should redirect_to(signin_path)
+      end
+    end  
     
   end
 end

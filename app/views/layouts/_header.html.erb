@@ -1,8 +1,15 @@
 <div data-role="header" data-theme="b">
-	<!--<h1><%= link_to logo, root_path %></h1>-->
-	<%= link_to "Home", root_path, "class" => "ui-btn-left", "data-icon" => "home" %>
+	<% if signed_in? %>
+		<%= link_to "Profile", current_user, "class" => "ui-btn-left", "data-icon" => "home" %>	
+	<% else %>
+		<%= link_to "Home", root_path, "class" => "ui-btn-left", "data-icon" => "home" %>
+	<% end %>
 	<h1>International Community</h1>
-	<%= link_to "Sign in", signin_path, "class" => "ui-btn-right", "data-icon"=>"sign-in" %>
+	<% if signed_in? %>
+		<%= link_to "Sign out", signout_path, :method => :delete, "class" => "ui-btn-right", "data-icon"=>"sign-in" %>
+	<% else %>
+		<%= link_to "Sign in", signin_path, "class" => "ui-btn-right", "data-icon"=>"sign-in" %>
+	<% end %>
 </div>
 
 

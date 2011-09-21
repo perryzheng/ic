@@ -1,14 +1,13 @@
-<table class="profile" summary="Profile Information">
-	<tr>
-	<td class="main">
-		<h1>
-		<%= gravatar_for @user %>
-		<%= @user.name %>
-		</h1>		
-	</td>
-	<td class="sidebar round">
-		<strong>Name</strong> <%= @user.name %><br/>
-		<strong>URL</strong> <%= link_to @user.email, @user %>
-	</td>
-	</tr>
-</table>
+
+<ul data-role="listview" data-split-theme="d" data-split-icon="star">
+	<li>
+	<a href="<%= edit_user_path(@user) %>">
+		<%= gravatar_for @user, :size => 80 %>
+		<h3><%= @user.name %></h3>
+		<p><%= @user.email %> (Click star to email)</p>
+		<p><%= @user.country %></p>
+	</a>
+	<a href="mailto:<%= @user.email %>" title="Email" data-theme="c">
+	</a>
+	</li>
+</ul>

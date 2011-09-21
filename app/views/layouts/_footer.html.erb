@@ -2,11 +2,12 @@
 	<div data-role="navbar">
 		<ul>
 	   <li><%= link_to "About", about_path, "data-role"=>"button", :class => "ui-btn-left" %></li>
-	   <li><%= link_to "FB", "http://www.facebook.com/groups/214193508621459/", "class" => "ui-btn-right" %></li>
+		<li><%= link_to "FB", "http://www.facebook.com/groups/214193508621459/", "class" => "ui-btn-left", "target"=>"_blank", "rel"=>"external" %></li>
 		<% if signed_in? %>
 		<li><%= link_to "Users", users_path %></li>
 		<li><%= link_to "Sign out", signout_path, "data-role"=>"button", :class => "ui-btn-left", "rel"=>"external" %></li>
 		<% else %>
+	   <li><%= link_to "Contact", contact_path, "data-role"=>"button", :class => "ui-btn-right" %></li>
 		<% end %>	
 		</ul>
 	</div>

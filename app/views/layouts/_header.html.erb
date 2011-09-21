@@ -1,14 +1,14 @@
 <div data-role="header" data-theme="b">
 	<% if signed_in? %>
-		<%= link_to "Profile", current_user, "class" => "ui-btn-left", "data-icon" => "home" %>	
+		<%= link_to "", current_user, "class" => "ui-btn-left", "data-icon" => "home", "data-iconpos"=>"notext" %>	
 	<% else %>
-		<%= link_to "Home", root_path, "class" => "ui-btn-left", "data-icon" => "home" %>
+		<%= link_to "", root_path, "class" => "ui-btn-left", "data-icon" => "home",  "data-iconpos"=>"notext"%>
 	<% end %>
-	<h1>International Community</h1>
+	<h3>ICOM</h3>
 	<% if signed_in? %>
-		<%= link_to "Settings", edit_user_path(current_user), "class" => "ui-btn-right", "data-icon"=>"sign-in" %>
+		<%= link_to "", edit_user_path(current_user), "class" => "ui-btn-right", "data-icon"=>"gear", "data-iconpos"=>"notext" %>
 	<% else %>
-		<%= link_to "Sign in", signin_path, "class" => "ui-btn-right", "data-icon"=>"sign-in" %>
+		<%= link_to "", signin_path, "class" => "ui-btn-right", "data-icon"=>"sign-in", "data-iconpos"=>"notext"%>
 	<% end %>
 </div>
 

@@ -109,12 +109,12 @@ footer nav {
 
 /* User show page */
 table.profile {
-	width: 100%;
+	width: 90%;
 	margin-bottom: 0;
 }
 
 td.main {
-	width:70%;
+	width:60%;
 	padding: 1em;
 }
 

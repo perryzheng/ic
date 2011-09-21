@@ -167,6 +167,7 @@ describe User do
 end
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -182,13 +183,13 @@ end
 #  first_name         :string(255)
 #  last_name          :string(255)
 #  phone              :string(255)
-#  esl                :boolean
+#  esl                :string(255)
 #  country            :string(255)
 #  start_date         :string(255)
 #  end_date           :string(255)
-#  english_help       :boolean
-#  living_help        :boolean
-#  fun_help           :boolean
-#  notes              :text
+#  english_help       :string(255)
+#  living_help        :string(255)
+#  fun_help           :string(255)
+#  notes              :string(255)
 #
 

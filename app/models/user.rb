@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation,
                   :phone, :first_name, :last_name, :esl, :country, :start_date,
-                  :end_date, :english_help, :living_help, :fun_help, :note
+                  :end_date, :english_help, :living_help, :fun_help, :notes
     
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -56,6 +56,7 @@ end
   
 
 
+
 # == Schema Information
 #
 # Table name: users
@@ -71,13 +72,13 @@ end
 #  first_name         :string(255)
 #  last_name          :string(255)
 #  phone              :string(255)
-#  esl                :boolean
+#  esl                :string(255)
 #  country            :string(255)
 #  start_date         :string(255)
 #  end_date           :string(255)
-#  english_help       :boolean
-#  living_help        :boolean
-#  fun_help           :boolean
-#  notes              :text
+#  english_help       :string(255)
+#  living_help        :string(255)
+#  fun_help           :string(255)
+#  notes              :string(255)
 #
 

@@ -144,7 +144,6 @@ describe UsersController do
       response.should have_selector("a", :href => gravatar_url, 
                                          :content => "change")
     end
-    
   end
   
   describe "PUT 'update'" do
@@ -164,7 +163,7 @@ describe UsersController do
         put :update, :id => @user, :user => @attr
         response.should render_template('edit')
       end
-
+      
       it "should have the right title" do
         put :update, :id => @user, :user => @attr
         response.should have_selector("title", :content => "Edit user")

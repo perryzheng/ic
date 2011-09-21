@@ -11725,3 +11725,268 @@ Migrating to AddManyInfoFieldsToUser (20110921083359)
   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("profiles")
   [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
   [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (0.3ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.3ms)[0m  [1mCREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" boolean, "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" boolean, "living_help" boolean, "fun_help" boolean, "notes" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (1.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" varchar(255), "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" varchar(255), "living_help" varchar(255), "fun_help" varchar(255), "notes" varchar(255)) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110921083359')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110622042727')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110630040525')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110707012133')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110717070711')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110921021846')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110921070024')
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110622042727)
+Migrating to AddEmailUniquenessIndex (20110630040525)
+Migrating to AddPasswordToUsers (20110707012133)
+Migrating to AddSaltToUsers (20110717070711)
+Migrating to AddAdminToUsers (20110921021846)
+Migrating to CreateProfiles (20110921070024)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("profiles")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.8ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" boolean, "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" boolean, "living_help" boolean, "fun_help" boolean, "notes" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" varchar(255), "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" varchar(255), "living_help" varchar(255), "fun_help" varchar(255), "notes" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110921083359')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110622042727')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110630040525')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110707012133')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110717070711')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110921021846')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110921070024')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2011-09-21 03:35:17 -0700
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (59.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered layouts/_footer.html.erb (1.5ms)
+Rendered pages/home.html.erb within layouts/application (66.2ms)
+Completed 200 OK in 70ms (Views: 69.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/signup" for 127.0.0.1 at 2011-09-21 03:35:20 -0700
+  Processing by UsersController#new as HTML
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered layouts/_stylesheets.html.erb (33.6ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered layouts/_header.html.erb (14.6ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered layouts/_footer.html.erb (1.5ms)
+Rendered users/new.html.erb within layouts/application (70.4ms)
+Completed 200 OK in 90ms (Views: 75.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2011-09-21 03:35:29 -0700
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yQ4+G1V6xMkoZwqlAA2IxwYsDRNCPhGhJYVWLodSZfg=", "user"=>{"name"=>"Perry Zheng", "email"=>"perry.zheng@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mSQL (0.2ms)[0m  SELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('perry.zheng@gmail.com')) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "encrypted_password", "salt", "admin", "first_name", "last_name", "phone", "esl", "country", "start_date", "end_date", "english_help", "living_help", "fun_help", "notes") VALUES ('Perry Zheng', 'perry.zheng@gmail.com', '2011-09-21 10:35:29.344094', '2011-09-21 10:35:29.344094', '9225cfce39afcf0a48d296f92b9a0221f36ff85151a01c7d591a3ba36bcd62dc', '47c3972191de5a1f2983b92e7052cb46c52ba7920077e2d899503937d8d94e9c', 'f', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)[0m
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 79ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-09-21 03:35:29 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered layouts/_header.html.erb (1.9ms)
+Rendered layouts/_footer.html.erb (0.9ms)
+Rendered users/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 81ms (Views: 14.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2011-09-21 03:35:31 -0700
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered shared/_error_messages.html.erb (0.6ms)
+Rendered layouts/_stylesheets.html.erb (1.5ms)
+Rendered layouts/_header.html.erb (2.4ms)
+Rendered layouts/_footer.html.erb (1.4ms)
+Rendered users/edit.html.erb within layouts/application (19.4ms)
+Completed 200 OK in 92ms (Views: 26.3ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/users/1" for 127.0.0.1 at 2011-09-21 03:36:02 -0700
+  Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yQ4+G1V6xMkoZwqlAA2IxwYsDRNCPhGhJYVWLodSZfg=", "user"=>{"first_name"=>"Perry", "last_name"=>"Zheng", "name"=>"Perry Zheng", "email"=>"perry.zheng@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "phone"=>"917-518-5151", "country"=>"China", "start_date"=>"10/2013", "end_date"=>"10/2015", "esl"=>"no", "english_help"=>"no", "living_help"=>"no", "fun_help"=>"yes", "notes"=>"awesome"}, "commit"=>"Update", "id"=>"1"}
+  [1m[35mUser Load (2.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT 1 FROM "users" WHERE (LOWER("users"."email") = LOWER('perry.zheng@gmail.com')) AND ("users".id <> 1) LIMIT 1[0m
+  [1m[35mAREL (0.3ms)[0m  UPDATE "users" SET "first_name" = 'Perry', "last_name" = 'Zheng', "phone" = '917-518-5151', "country" = 'China', "start_date" = '10/2013', "end_date" = '10/2015', "esl" = 'no', "english_help" = 'no', "living_help" = 'no', "fun_help" = 'yes', "notes" = 'awesome', "encrypted_password" = '8c3067d66cfd77850b9ed437770f8b3647d59696d0f5427816b2d99c266a190c', "updated_at" = '2011-09-21 10:36:02.601785' WHERE "users"."id" = 1
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 48ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-09-21 03:36:02 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered layouts/_header.html.erb (2.1ms)
+Rendered layouts/_footer.html.erb (0.9ms)
+Rendered users/show.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 50ms (Views: 13.8ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-09-21 03:36:06 -0700
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" LIMIT 30 OFFSET 0
+Rendered users/_user.html.erb (1.4ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (2.0ms)
+Rendered layouts/_footer.html.erb (1.7ms)
+Rendered users/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 59ms (Views: 17.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-09-21 03:36:08 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered layouts/_stylesheets.html.erb (2.4ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered layouts/_header.html.erb (2.9ms)
+Rendered layouts/_footer.html.erb (1.5ms)
+Rendered users/show.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 64ms (Views: 20.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/1/edit" for 127.0.0.1 at 2011-09-21 03:36:11 -0700
+  Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered shared/_error_messages.html.erb (0.9ms)
+Rendered layouts/_stylesheets.html.erb (1.3ms)
+Rendered layouts/_header.html.erb (1.3ms)
+Rendered layouts/_footer.html.erb (1.0ms)
+Rendered users/edit.html.erb within layouts/application (56.8ms)
+Completed 200 OK in 105ms (Views: 62.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2011-09-21 03:36:18 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered layouts/_stylesheets.html.erb (1.9ms)
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered layouts/_header.html.erb (3.3ms)
+Rendered layouts/_footer.html.erb (1.4ms)
+Rendered users/show.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 86ms (Views: 18.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2011-09-21 03:36:22 -0700
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" LIMIT 30 OFFSET 0
+Rendered users/_user.html.erb (1.3ms)
+Rendered layouts/_stylesheets.html.erb (1.1ms)
+Rendered layouts/_header.html.erb (3.8ms)
+Rendered layouts/_footer.html.erb (1.6ms)
+Rendered users/index.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 89ms (Views: 21.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2011-09-21 03:36:25 -0700
+  Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms
+
+
+Started GET "/" for 127.0.0.1 at 2011-09-21 03:36:25 -0700
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1
+Rendered layouts/_header.html.erb (58.5ms)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IS NULL LIMIT 1[0m
+Rendered layouts/_footer.html.erb (1.5ms)
+Rendered pages/home.html.erb within layouts/application (64.7ms)
+Completed 200 OK in 68ms (Views: 67.7ms | ActiveRecord: 0.2ms)

@@ -10581,3 +10581,17 @@ Rendered layouts/_header.html.erb (71.1ms)
 Rendered layouts/_footer.html.erb (1.2ms)
 Rendered pages/home.html.erb within layouts/application (78.7ms)
 Completed 200 OK in 83ms (Views: 82.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2011-09-20 23:55:20 -0700
+  Processing by PagesController#home as HTML
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered layouts/_header.html.erb (67.3ms)
+Rendered layouts/_footer.html.erb (1.6ms)
+Rendered pages/home.html.erb within layouts/application (73.9ms)
+Completed 200 OK in 77ms (Views: 76.2ms | ActiveRecord: 0.6ms)

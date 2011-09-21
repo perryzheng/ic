@@ -10,6 +10,7 @@ group :development do
   gem 'rspec-rails'
   gem 'annotate'
   gem 'autotest-rails'
+  gem 'faker', '0.3.1'
 end
 
 group :test do

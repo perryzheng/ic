@@ -179,3 +179,8 @@ div.field, div.actions {
 	font-size: 1em;
 	list-style: square;
 }
+
+.flash {
+	margin-top: 2em;
+	background-color: #ffc;
+}

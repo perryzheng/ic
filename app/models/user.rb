@@ -1,9 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
-  
-  has_one :profile, :dependent => :destroy
-  
+  attr_accessible :name, :email, :password, :password_confirmation,
+                  :phone, :first_name, :last_name, :esl, :country, :start_date,
+                  :end_date, :english_help, :living_help, :fun_help, :note
+    
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :presence=>true,
@@ -55,6 +55,7 @@ class User < ActiveRecord::Base
 end
   
 
+
 # == Schema Information
 #
 # Table name: users
@@ -67,5 +68,16 @@ end
 #  encrypted_password :string(255)
 #  salt               :string(255)
 #  admin              :boolean         default(FALSE)
+#  first_name         :string(255)
+#  last_name          :string(255)
+#  phone              :string(255)
+#  esl                :boolean
+#  country            :string(255)
+#  start_date         :string(255)
+#  end_date           :string(255)
+#  english_help       :boolean
+#  living_help        :boolean
+#  fun_help           :boolean
+#  notes              :text
 #
 

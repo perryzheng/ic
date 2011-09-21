@@ -166,6 +166,7 @@ describe User do
   # end
 end
 
+
 # == Schema Information
 #
 # Table name: users
@@ -178,5 +179,16 @@ end
 #  encrypted_password :string(255)
 #  salt               :string(255)
 #  admin              :boolean         default(FALSE)
+#  first_name         :string(255)
+#  last_name          :string(255)
+#  phone              :string(255)
+#  esl                :boolean
+#  country            :string(255)
+#  start_date         :string(255)
+#  end_date           :string(255)
+#  english_help       :boolean
+#  living_help        :boolean
+#  fun_help           :boolean
+#  notes              :text
 #
 

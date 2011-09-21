@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to International Community, #{@user.name}!"
+      flash[:success] = "Welcome to International Community, #{@user.name}! Please tell us more about you by clicking on 'Settings' at the top right corner."
       redirect_to @user
     else
       @user.password = ""

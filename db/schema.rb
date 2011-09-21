@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110921070024) do
+ActiveRecord::Schema.define(:version => 20110921083359) do
 
   create_table "profiles", :force => true do |t|
     t.string   "first_name"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(:version => 20110921070024) do
     t.string   "encrypted_password"
     t.string   "salt"
     t.boolean  "admin",              :default => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.string   "esl"
+    t.string   "country"
+    t.string   "start_date"
+    t.string   "end_date"
+    t.string   "english_help"
+    t.string   "living_help"
+    t.string   "fun_help"
+    t.string   "notes"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

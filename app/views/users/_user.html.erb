@@ -2,6 +2,10 @@
 <a href="<%= user_path(user) %>">
 	<%= gravatar_for user, :size => 80 %>
 	<h3><%= user.name %></h3>
+	<% if current_user.admin? %>
+    <p><%= user.email %> </p>
+	<p><%= user.phone %> </p>
+	<% end %>
 </a>
 <% if current_user.admin? %>
    	<a href="<%= user_path(user) %>" title="Delete" data-method="delete" data-confirm="You sure" data-theme="c">

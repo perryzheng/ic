@@ -125,7 +125,6 @@ describe User do
     
   end
   
-  
   describe "admin attribute" do
     before(:each) do
       @user = User.create!(@attr) 
@@ -145,4 +144,39 @@ describe User do
     end
   end
   
+  describe "profile associations" do
+    before(:each) do
+      @user = User.create(@attr)
+      @p = Factory(:profile, :user => @user)
+    end
+    
+    it "should have a profile attribute" do
+      @user.should respond_to(:profile)
+    end
+    
+    it "should have the right profile" do
+      @user.profile.should == @p
+    end
+    
+    it "should destroy associated profile" do
+      @user.destroy
+      Profile.find_by_id(@p.id).should be_nil
+    end
+    
+  end
 end
+
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :integer         not null, primary key
+#  name               :string(255)
+#  email              :string(255)
+#  created_at         :datetime
+#  updated_at         :datetime
+#  encrypted_password :string(255)
+#  salt               :string(255)
+#  admin              :boolean         default(FALSE)
+#
+

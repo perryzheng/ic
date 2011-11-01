@@ -1,0 +1,4 @@
+<h2>3000 Believers on Day on Pentecost</h2>
+<% if @passage.present? %>
+<p><%= @passage['text'] %> - <%= "#{@passage['bookname']} #{@passage['chapter']} - #{@passage['verse']}" %> </p>
+<% end %>

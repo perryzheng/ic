@@ -6,12 +6,14 @@ gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'rake'
 gem 'jquery-rails'
 gem 'will_paginate', '3.0.pre2'
+gem 'httparty'
 
 group :development do
   gem 'rspec-rails'
   gem 'annotate'
   gem 'autotest-rails'
   gem 'faker', '0.3.1'
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 
 group :test do

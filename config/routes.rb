@@ -1,4 +1,8 @@
 SampleApp::Application.routes.draw do
+  # get "chapters/new"
+  get "lessons/new"
+
+  resources :chapters, :only => [:new, :index, :show]
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   
@@ -8,6 +12,7 @@ SampleApp::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
+  #match '/chapters/:id', :to => 'chapters#show'
   
   root :to => 'pages#home'
 

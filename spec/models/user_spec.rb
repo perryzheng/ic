@@ -143,27 +143,30 @@ describe User do
       @user.should be_admin
     end
   end
-  # 
-  # describe "profile associations" do
-  #   before(:each) do
-  #     @user = User.create(@attr)
-  #     @p = Factory(:profile, :user => @user)
-  #   end
-  #   
-  #   it "should have a profile attribute" do
-  #     @user.should respond_to(:profile)
-  #   end
-  #   
-  #   it "should have the right profile" do
-  #     @user.profile.should == @p
-  #   end
-  #   
-  #   it "should destroy associated profile" do
-  #     @user.destroy
-  #     Profile.find_by_id(@p.id).should be_nil
-  #   end
-  #   
-  # end
+  
+  describe "micropost associations" do
+    before(:each) do
+      @user = User.create(@attr)
+      @mp1 = Factory(:micropost, :user => @user, :created_at => 1.day.ago)
+      @mp2 = Factory(:micropost, :user => @user, :created_at => 1.hour.ago)
+    end
+    
+    it "should have a micropost attribute" do
+      @user.should respond_to(:microposts)
+    end
+    
+    it "should have the right micropost in the right order" do
+      @user.microposts.should == [@mp2, @mp1]
+    end
+    
+    it "should destroy associated microposts" do
+      @user.destroy
+      [@mp1, @mp2].each do |micropost|
+        Micropost.find_by_id(micropost.id).should be_nil
+      end
+    end
+  end
+
 end
 
 

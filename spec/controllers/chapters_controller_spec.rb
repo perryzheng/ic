@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe ChaptersController do
 
-  describe "GET 'new'" do
-    it "should be successful" do
-      get 'new'
-      response.should be_success
-    end
-  end
+  # describe "GET 'new'" do
+  #   it "should be successful" do
+  #     get 'new'
+  #     response.should be_success
+  #   end
+  # end
   
   describe "GET 'index'" do 
     it "should make the http request successfully" do

@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
                   :phone, :first_name, :last_name, :esl, :country, :start_date,
                   :end_date, :english_help, :living_help, :fun_help, :notes
     
+  has_many :microposts, :dependent => :destroy
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :name, :presence=>true,

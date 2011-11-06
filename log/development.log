@@ -19034,3 +19034,456 @@ The error occurred while evaluating nil.empty?):
 Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
 Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (5.2ms)
 Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.5ms)
+
+
+Started GET "/users/13/" for 127.0.0.1 at 2011-11-05 23:25:30 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1[0m
+  [1m[35mMicropost Load (0.3ms)[0m  SELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 13) ORDER BY microposts.created_at DESC LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 13)[0m
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+  [1m[35mUser Load (2.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 101 LIMIT 1
+Rendered layouts/_header.html.erb (3.9ms)
+Rendered layouts/_footer.html.erb (1.1ms)
+Rendered users/show.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 108ms (Views: 14.0ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2011-11-05 23:25:36 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mMicropost Load (0.9ms)[0m  SELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 3) ORDER BY microposts.created_at DESC LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 3)
+  [1m[36mMicropost Load (0.9ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 3) ORDER BY microposts.created_at DESC[0m
+ERROR: compiling _app_views_microposts__micropost_html_erb___4128914152856552093_2158539700__1507393592300233534 RAISED /Users/perryz/ic/app/views/microposts/_micropost.html.erb:15: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/perryz/ic/app/views/microposts/_micropost.html.erb:17: syntax error, unexpected $end, expecting keyword_end
+Function body:           def _app_views_microposts__micropost_html_erb___4128914152856552093_2158539700__1507393592300233534(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "microposts/_micropost";_old_output_buffer = @output_buffer;micropost_counter = local_assigns[:micropost_counter];micropost = local_assigns[:micropost];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<ul data-role="listview" data-theme="c">
+  <li>
+    <h4>');@output_buffer.append= ( micropost.content );@output_buffer.safe_concat('</h4>
+    <p>
+      Posted ');@output_buffer.append= ( time_ago_in_words(micropost.created_at) );@output_buffer.safe_concat(' ago.
+    </p>
+');	 if current_user?(micropost.user) 
+@output_buffer.safe_concat('  	<td>
+	    ');@output_buffer.append= ( link_to "delete", micropost, :method => :delete,
+	                                     :confirm => "You sure?",
+	                                     :title => micropost.content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('	 </td>
+  </li>
+</ul>');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `module_eval'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `compile'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:134:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:300:in `block in collection_with_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:297:in `each'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:297:in `collection_with_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:280:in `render_collection'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:255:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:253:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:378:in `_render_partial'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:31:in `render'
+/Users/perryz/ic/app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb__567019365654205611_2158666560__864169216713242282'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:135:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:26:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:93:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:17:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:14:in `default_render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:6:in `send_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:150:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:436:in `_run__1098760870954275223__process_action__2676335618521097240__callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:119:in `process'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:41:in `process'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal.rb:138:in `dispatch'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal.rb:178:in `block in action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:89:in `optimized_each'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/methodoverride.rb:24:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/sendfile.rb:106:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/runtime.rb:17:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/lock.rb:11:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/content_length.rb:13:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/handler/webrick.rb:52:in `service'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered microposts/_micropost.html.erb (0.9ms)
+Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed   in 95ms
+
+ActionView::Template::Error (/Users/perryz/ic/app/views/microposts/_micropost.html.erb:15: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/perryz/ic/app/views/microposts/_micropost.html.erb:17: syntax error, unexpected $end, expecting keyword_end):
+    12: 	 </td>
+    13:   </li>
+    14: </ul>
+  app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb__567019365654205611_2158666560__864169216713242282'
+
+Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (48.6ms)
+Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (52.8ms)
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2011-11-05 23:25:47 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mMicropost Load (0.9ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 3) ORDER BY microposts.created_at DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 3)[0m
+  [1m[35mMicropost Load (0.9ms)[0m  SELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 3) ORDER BY microposts.created_at DESC
+ERROR: compiling _app_views_microposts__micropost_html_erb___4128914152856552093_2166516440__1507393592300233534 RAISED /Users/perryz/ic/app/views/microposts/_micropost.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/perryz/ic/app/views/microposts/_micropost.html.erb:15: syntax error, unexpected $end, expecting keyword_end
+Function body:           def _app_views_microposts__micropost_html_erb___4128914152856552093_2166516440__1507393592300233534(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "microposts/_micropost";_old_output_buffer = @output_buffer;micropost_counter = local_assigns[:micropost_counter];micropost = local_assigns[:micropost];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<ul data-role="listview" data-theme="c">
+  <li>
+    <h4>');@output_buffer.append= ( micropost.content );@output_buffer.safe_concat('</h4>
+    <p>
+      Posted ');@output_buffer.append= ( time_ago_in_words(micropost.created_at) );@output_buffer.safe_concat(' ago.
+    </p>
+');	 if current_user?(micropost.user) 
+@output_buffer.safe_concat('	    ');@output_buffer.append= ( link_to "delete", micropost, :method => :delete,
+	                                     :confirm => "You sure?",
+	                                     :title => micropost.content );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </li>
+</ul>');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `module_eval'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `compile'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:134:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:300:in `block in collection_with_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:297:in `each'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:297:in `collection_with_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:280:in `render_collection'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:255:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:253:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/partials.rb:378:in `_render_partial'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:31:in `render'
+/Users/perryz/ic/app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb__567019365654205611_2169504360__864169216713242282'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:135:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:26:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:93:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:17:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:14:in `default_render'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:6:in `send_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:150:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:436:in `_run__1098760870954275223__process_action__2676335618521097240__callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:119:in `process'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:41:in `process'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal.rb:138:in `dispatch'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_controller/metal.rb:178:in `block in action'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:89:in `optimized_each'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/methodoverride.rb:24:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/sendfile.rb:106:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/runtime.rb:17:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/lock.rb:11:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/content_length.rb:13:in `call'
+/Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/rack-1.2.4/lib/rack/handler/webrick.rb:52:in `service'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/perryz/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered microposts/_micropost.html.erb (0.8ms)
+Rendered users/show.html.erb within layouts/application (5.2ms)
+Completed   in 97ms
+
+ActionView::Template::Error (/Users/perryz/ic/app/views/microposts/_micropost.html.erb:13: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/perryz/ic/app/views/microposts/_micropost.html.erb:15: syntax error, unexpected $end, expecting keyword_end):
+    10: 	                                     :title => micropost.content %>
+    11:   </li>
+    12: </ul>
+  app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb__567019365654205611_2169504360__864169216713242282'
+
+Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.5ms)
+Rendered /Users/perryz/.rvm/gems/ruby-1.9.2-p180@rails3tutorial/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (14.7ms)
+
+
+Started GET "/users/3/" for 127.0.0.1 at 2011-11-05 23:25:57 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mMicropost Load (0.9ms)[0m  SELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 3) ORDER BY microposts.created_at DESC LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 3)
+  [1m[36mMicropost Load (1.5ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 3) ORDER BY microposts.created_at DESC[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mUser Load (1.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 101 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1
+Rendered microposts/_micropost.html.erb (69.4ms)
+Rendered layouts/_stylesheets.html.erb (0.9ms)
+Rendered layouts/_header.html.erb (0.9ms)
+Rendered layouts/_footer.html.erb (0.9ms)
+Rendered users/show.html.erb within layouts/application (82.9ms)
+Completed 200 OK in 174ms (Views: 82.6ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/users/" for 127.0.0.1 at 2011-11-05 23:38:54 -0700
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 101 LIMIT 1[0m
+  [1m[35mUser Load (69.1ms)[0m  SELECT "users".* FROM "users" LIMIT 30 OFFSET 0
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+Rendered users/_user.html.erb (7.4ms)
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+Rendered layouts/_header.html.erb (0.8ms)
+Rendered layouts/_footer.html.erb (0.8ms)
+Rendered users/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 159ms (Views: 18.6ms | ActiveRecord: 70.4ms)
+
+
+Started GET "/users/2" for 127.0.0.1 at 2011-11-05 23:38:59 -0700
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mMicropost Load (1.0ms)[0m  [1mSELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 2) ORDER BY microposts.created_at DESC LIMIT 30 OFFSET 0[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "microposts" WHERE ("microposts".user_id = 2)[0m
+  [1m[35mMicropost Load (1.2ms)[0m  SELECT "microposts".* FROM "microposts" WHERE ("microposts".user_id = 2) ORDER BY microposts.created_at DESC
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mUser Load (3.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 101 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+Rendered microposts/_micropost.html.erb (35.5ms)
+Rendered layouts/_stylesheets.html.erb (0.8ms)
+Rendered layouts/_header.html.erb (1.0ms)
+Rendered layouts/_footer.html.erb (1.0ms)
+Rendered users/show.html.erb within layouts/application (48.4ms)
+Completed 200 OK in 174ms (Views: 50.1ms | ActiveRecord: 6.9ms)

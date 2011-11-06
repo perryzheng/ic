@@ -8,6 +8,11 @@
 	<p><%= f.label	:lesson_content %><br />
 	<%= f.text_area :lesson_content %></p>
 
+	<%= f.fields_for :bullet_points do |bullet_point| %>
+	<p>	<%= render 'bullet_point_fields', :f => bullet_point %></p>
+	<hr />
+	<% end %>
+	
 	<%= f.submit "Create a lesson" %>
 	<br />
 <% end %>

@@ -23,6 +23,11 @@
 	margin: 1em 0;
 }
 
+.bullet-point-header {
+	font-weight: bold;
+	background-color: blue;
+}
+
 .container {
   width: 900px;
 }

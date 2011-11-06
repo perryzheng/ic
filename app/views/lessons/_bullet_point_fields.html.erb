@@ -1,0 +1,6 @@
+<p class="bullet-point-header"><%= f.label :header, "Header" %>
+<%= f.text_field :header %></p>
+
+<%= f.fields_for :bible_verses do |bible_verse| %>
+	<%= render 'bible_verse_fields', :f => bible_verse %>
+<% end %>

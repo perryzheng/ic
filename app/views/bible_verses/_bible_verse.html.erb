@@ -1,11 +1,15 @@
 <br />
 <br />
-<span class="verse-content" style="display:none;"><%= bible_verse.verse_content %></span>
-<span class="verse-label"><a src="#" onclick="toggle(this);"><%= bible_verse.label %></a></span>
+<span class="verse-content" style="display:none;" onclick="toggleVerse(this);"><%= bible_verse.verse_content %></span>
+<span class="verse-label"><a src="#" onclick="toggleLabel(this);"><%= bible_verse.label %></a></span>
 <br />
 
 <script>
-function toggle(obj){
+function toggleLabel(obj){
 	$(obj).parent().prev().toggle();
+}
+
+function toggleVerse(obj) {
+	$(obj).toggle();
 }
 </script>

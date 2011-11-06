@@ -1,10 +1,8 @@
 SampleApp::Application.routes.draw do
-  # get "chapters/new"
-  get "lessons/new"
-
   resources :chapters, :only => [:new, :index, :show]
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :microposts, :only => [:create, :destroy]
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'

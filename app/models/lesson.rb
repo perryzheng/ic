@@ -1,6 +1,8 @@
 class Lesson < ActiveRecord::Base
   attr_accessible :title, :lesson_content
   
+  has_many :bullet_points, :dependent => :destroy
+  
   validates :title, :presence => true
 end
 

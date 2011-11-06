@@ -1,5 +1,10 @@
 class BulletPoint < ActiveRecord::Base
   attr_accessible :header, :bullet_point_content
+  
+  belongs_to :lesson
+  
+  validates :header, :presence => true
+  validates :lesson_id, :presence => true
 end
 
 # == Schema Information

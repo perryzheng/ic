@@ -19,3 +19,9 @@ Factory.define :lesson do |lesson|
   lesson.lesson_content "Turning from a life of sin to serve God.."
   lesson.title "Repentance From Dead Works"
 end
+
+Factory.define :bullet_point do |bullet_point|
+  bullet_point.header "Old Testament Israel Was Warned to Repent"
+  bullet_point.bullet_point_content ""
+  bullet_point.association :lesson
+end

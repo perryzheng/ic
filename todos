@@ -162,11 +162,23 @@ user = User.new(:name => "perry", :email=>"hi@payscale.com", :something=>"blah",
 
 11-06-2011
 
-1. Create a Lesson model: rails generate model Lesson title:string lesson_content:text
-2. Create a BulletPoint model: rails generate model BulletPoint header:string bullet_point_content:text lesson_id:integer
-3. Create a BibleVerse model: rails generate model BibleVerse verse_content:text label:string bullet_point_id:integer
+1. Create a Lesson model: rails generate model Lesson title:string lesson_content:text - done!
+2. Create a BulletPoint model: rails generate model BulletPoint header:string bullet_point_content:text lesson_id:integer - done!
+3. Create a BibleVerse model: rails generate model BibleVerse verse_content:text label:string bullet_point_id:integer - done!
 
 
-Controllers
-1. localhost:3000/lessons/1/
-2. 
+Controllers:
+1. rails g controller Lessons show - done!
+2. rails g controller BulletPoints index - done!
+3. rails g controller BibleVerses index - done!
+
+Routes:
+1. localhost:3000/lessons/1/ - done!
+
+Add toggling ability
+1. Toggle between verse label and verse content
+
+
+Add ability to add a lesson
+1. 
+

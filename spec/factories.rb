@@ -14,3 +14,8 @@ Factory.define :micropost do |micropost|
   micropost.content "Foo bar"
   micropost.association :user
 end
+
+Factory.define :lesson do |lesson|
+  lesson.lesson_content "Turning from a life of sin to serve God.."
+  lesson.title "Repentance From Dead Works"
+end

@@ -10,7 +10,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101045334) do
+ActiveRecord::Schema.define(:version => 20111106073202) do
+
+  create_table "bible_verses", :force => true do |t|
+    t.text     "verse_content"
+    t.string   "label"
+    t.integer  "bullet_point_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bullet_points", :force => true do |t|
+    t.string   "header"
+    t.text     "bullet_point_content"
+    t.integer  "lesson_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lessons", :force => true do |t|
+    t.string   "title"
+    t.text     "lesson_content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"

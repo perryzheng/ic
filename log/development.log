@@ -20792,3 +20792,289 @@ Rendered layouts/_footer.html.erb (0.9ms)
 Rendered layouts/_gascript.html.erb (0.2ms)
 Rendered pages/home.html.erb within layouts/application (51.7ms)
 Completed 200 OK in 132ms (Views: 54.6ms | ActiveRecord: 2.2ms)
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110622042727)
+Migrating to AddEmailUniquenessIndex (20110630040525)
+Migrating to AddPasswordToUsers (20110707012133)
+Migrating to AddSaltToUsers (20110717070711)
+Migrating to AddAdminToUsers (20110921021846)
+Migrating to CreateProfiles (20110921070024)
+Migrating to CreateMicroposts (20111101045334)
+Migrating to CreateLessons (20111106072654)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "lesson_content" text, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111106072654')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("lessons")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("microposts")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_microposts_on_user_id')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("profiles")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.0ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "lesson_content" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("microposts")[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" boolean, "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" boolean, "living_help" boolean, "fun_help" boolean, "notes" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" varchar(255), "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" varchar(255), "living_help" varchar(255), "fun_help" varchar(255), "notes" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111106072654')[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110622042727')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110630040525')[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110707012133')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110717070711')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110921021846')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110921070024')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111101045334')
+  [1m[36mSQL (30.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110622042727)
+Migrating to AddEmailUniquenessIndex (20110630040525)
+Migrating to AddPasswordToUsers (20110707012133)
+Migrating to AddSaltToUsers (20110717070711)
+Migrating to AddAdminToUsers (20110921021846)
+Migrating to CreateProfiles (20110921070024)
+Migrating to CreateMicroposts (20111101045334)
+Migrating to CreateLessons (20111106072654)
+Migrating to CreateBulletPoints (20111106073007)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "bullet_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "header" varchar(255), "bullet_point_content" text, "lesson_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111106073007')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("bullet_points")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("lessons")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("microposts")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_microposts_on_user_id')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("profiles")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.1ms)[0m  CREATE TABLE "bullet_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "header" varchar(255), "bullet_point_content" text, "lesson_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "lesson_content" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  CREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("microposts")[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" boolean, "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" boolean, "living_help" boolean, "fun_help" boolean, "notes" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" varchar(255), "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" varchar(255), "living_help" varchar(255), "fun_help" varchar(255), "notes" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111106073007')[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110622042727')
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110630040525')[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110707012133')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110717070711')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110921021846')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110921070024')[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111101045334')
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111106072654')[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateUsers (20110622042727)
+Migrating to AddEmailUniquenessIndex (20110630040525)
+Migrating to AddPasswordToUsers (20110707012133)
+Migrating to AddSaltToUsers (20110717070711)
+Migrating to AddAdminToUsers (20110921021846)
+Migrating to CreateProfiles (20110921070024)
+Migrating to CreateMicroposts (20111101045334)
+Migrating to CreateLessons (20111106072654)
+Migrating to CreateBulletPoints (20111106073007)
+Migrating to CreateBibleVerses (20111106073202)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "bible_verses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "verse_content" text, "label" varchar(255), "bullet_point_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20111106073202')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("bible_verses")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("bullet_points")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("lessons")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("microposts")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_microposts_on_user_id')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("profiles")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.1ms)[0m  CREATE TABLE "bible_verses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "verse_content" text, "label" varchar(255), "bullet_point_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE TABLE "bullet_points" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "header" varchar(255), "bullet_point_content" text, "lesson_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE TABLE "lessons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "lesson_content" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE TABLE "microposts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "content" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("microposts")[0m
+  [1m[35mSQL (0.9ms)[0m  CREATE INDEX "index_microposts_on_user_id" ON "microposts" ("user_id")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE TABLE "profiles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" boolean, "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" boolean, "living_help" boolean, "fun_help" boolean, "notes" text, "user_id" integer, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "admin" boolean DEFAULT 'f', "first_name" varchar(255), "last_name" varchar(255), "phone" varchar(255), "esl" varchar(255), "country" varchar(255), "start_date" varchar(255), "end_date" varchar(255), "english_help" varchar(255), "living_help" varchar(255), "fun_help" varchar(255), "notes" varchar(255)) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (1.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (1.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111106073202')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110622042727')
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110630040525')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110707012133')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110717070711')[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20110921021846')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20110921070024')[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111101045334')
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20111106072654')[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20111106073007')
+WARNING: Can't mass-assign protected attributes: bullet_point_id

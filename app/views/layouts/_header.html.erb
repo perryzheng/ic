@@ -1,6 +1,6 @@
 <div data-role="header" data-theme="b">
 	<% if signed_in? %>
-		<%= link_to "", current_user, "class" => "ui-btn-left", "data-icon" => "home", "data-iconpos"=>"notext" %>	
+		<%= link_to "", root_path, "class" => "ui-btn-left", "data-icon" => "home", "data-iconpos"=>"notext" %>	
 	<% else %>
 		<%= link_to "", root_path, "class" => "ui-btn-left", "data-icon" => "home",  "data-iconpos"=>"notext"%>
 	<% end %>

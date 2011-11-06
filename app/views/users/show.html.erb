@@ -11,3 +11,8 @@
 	</a>
 	</li>
 </ul>
+
+<% unless @user.microposts.empty? %>
+   	<%= render @user.microposts %>
+	<%= will_paginate @microposts %>
+<% end %>

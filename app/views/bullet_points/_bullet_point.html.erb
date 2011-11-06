@@ -1,0 +1,10 @@
+ <li>
+   <span class="oi-li-heading"><%= bullet_point.header %></span>
+   <span class="oi-li-desc">
+     Posted <%= time_ago_in_words(bullet_point.created_at) %> ago.
+   </span>
+	
+	<% unless bullet_point.bible_verses.empty? %>
+  	<%= render bullet_point.bible_verses %>
+<% end %>
+ </li>

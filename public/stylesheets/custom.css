@@ -1,3 +1,28 @@
+/*jquery improvements*/
+.oi-li-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: .6em 0;
+}
+
+.oi-li-desc {
+    font-size: 1em;
+    font-weight: normal;
+    margin: -.5em 0 .6em;
+}
+
+.verse-content {
+	font-size:1.2em;
+	font-weight:normal;
+	margin: 1em 0 1em 3em;
+}
+
+.verse-label {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin: 1em 0;
+}
+
 .container {
   width: 900px;
 }

@@ -1,8 +1,10 @@
 SampleApp::Application.routes.draw do
-  resources :chapters, :only => [:new, :index, :show]
+  get "lessons/show"
+
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   resources :microposts, :only => [:create, :destroy]
+  resources :lessons
   
   match '/signup',  :to => 'users#new'
   match '/signin',  :to => 'sessions#new'
@@ -10,7 +12,6 @@ SampleApp::Application.routes.draw do
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
   match '/help',    :to => 'pages#help'
-  #match '/chapters/:id', :to => 'chapters#show'
   
   root :to => 'pages#home'
 

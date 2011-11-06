@@ -22,5 +22,24 @@ namespace :db do
         user.microposts.create!(:content => Faker::Lorem.sentence(5))
       end
     end
+    
+    10.times do
+      Lesson.create!(:title => Faker::Lorem.sentence(2),
+                     :lesson_content => Faker::Lorem.sentence(5))
+    end
+    
+    50.times do
+      Lesson.all(:limit => 6).each do |lesson|
+        lesson.bullet_points.create!({:header => Faker::Lorem.sentence(2)})
+      end
+    end
+    
+    3.times do 
+      BulletPoint.all(:limit => 100).each do |bullet_point|
+        bullet_point.bible_verses.create!( {:label => Faker::Lorem.sentence(1),
+                                            :verse_content => Faker::Lorem.sentence(3)})
+      end
+    end
+    
   end
 end

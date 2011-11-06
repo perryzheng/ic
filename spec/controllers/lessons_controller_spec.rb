@@ -39,4 +39,131 @@ describe LessonsController do
     
   end
 
+  describe "GET 'new'" do
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+    end
+    
+    it "should be successful" do
+      get 'new'
+      response.should be_success
+    end
+    
+    it "should have a title field" do
+      get 'new'
+      response.should have_selector("input[name='lesson[title]'][type='text']")
+    end
+    
+  end
+  
+  describe "GET 'edit'" do
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+      @lesson = Factory(:lesson)
+    end
+    
+    it "should be successful" do
+      get :edit, :id => @lesson
+      response.should be_success
+    end
+  end
+  
+  describe "PUT 'update'" do
+    before(:each) do
+      @user = Factory(:user)
+      test_sign_in(@user)
+      @lesson = Factory(:lesson)
+    end
+
+    describe "failure" do
+      before(:each) do
+        @attr = { :title => "", :lesson_content => "something" }
+      end
+
+      it "should render the 'edit' page" do
+        put :update, :id => @lesson, :lesson => @attr
+        response.should render_template('edit')
+      end
+    end  
+    
+    describe "success" do
+
+      before(:each) do
+        @attr = { :title => "non-empty", :lesson_content => "something"}
+      end
+
+      it "should change the user's attributes" do
+        put :update, :id => @lesson, :lesson => @attr
+        @lesson.reload
+        @lesson.title.should  == @attr[:title]
+        @lesson.lesson_content.should == @attr[:lesson_content]
+      end
+
+      it "should redirect to the user show page" do
+        put :update, :id => @lesson, :lesson => @attr
+        response.should redirect_to(lesson_path(@lesson))
+      end
+
+      it "should have a flash message" do
+        put :update, :id => @lesson, :lesson => @attr
+        flash[:success].should =~ /updated/
+      end
+    end
+  end
+  
+  describe "POST 'create'" do
+    before(:each) do
+      @user = test_sign_in(Factory(:user))
+    end
+    
+    describe "failure" do
+      before(:each) do
+        @attr = { :title => "", :lesson_content => ""}
+      end
+
+      it "should not create a lesson" do
+        lambda do 
+          post :create, :lesson => @attr
+        end.should_not change(Lesson, :count)
+      end
+
+      it "should render the 'new' page" do
+        post :create, :lesson => @attr
+        response.should render_template('new')
+      end
+    end
+     
+    describe "success" do
+       before(:each) do
+         @attr = { :title => "Repentance From Dead Works", 
+                   :lesson_content => "Turning from a life of sin to serve God.."}
+       end
+
+       it "should create a lesson " do
+         lambda do
+           post :create, :lesson => @attr
+         end.should change(Lesson, :count).by(1)
+       end
+
+       it "should redirect to the home page" do
+         post :create, :lesson => @attr
+         response.should redirect_to(lesson_path(assigns(:lesson)))
+       end
+
+       it "should have a flash message" do
+         post :create, :lesson => @attr
+         flash[:success].should =~ /lesson created/i
+       end
+     end  #end of 'success'
+  end
+
+  describe "access control" do
+    it "should deny access to 'create'" do
+      post :create
+      response.should redirect_to(signin_path)
+    end
+  end
+
 end

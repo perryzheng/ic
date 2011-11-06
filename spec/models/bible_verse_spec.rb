@@ -32,7 +32,22 @@ describe BibleVerse do
     end
     
     it "should require nonblank verse" do
-      @bullet_point.bible_verses.build(@attr.merge(:label => "  ")).should_not be_valid
+      bible_verse = @bullet_point.bible_verses.build(@attr.merge(:label => "  "))
+      bible_verse.should_not be_valid
+    end
+  end
+  
+  describe "getting verse_content from label" do
+    it "should be able to get verse_content from label" do
+      bible_verse = @bullet_point.bible_verses.create(@attr.merge(:verse_content => ""))
+      bible_verse.label.should =~ /John 3:16/i
+      bible_verse.verse_content.should =~ /For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life./i
+    end
+    
+    it "should get for phillipians" do
+      bible_verse = @bullet_point.bible_verses.create(@attr.merge(:label => "1 Corinthians 1:2"))
+      bible_verse.label.should =~ /1 Corinthians 1:2/i
+      bible_verse.verse_content.should =~ /Unto the church of God which is at Corinth, to them that are sanctified in Christ Jesus, called to be saints, with all that in every place call upon the name of Jesus Christ our Lord, both theirs and ours:/i
     end
   end
   

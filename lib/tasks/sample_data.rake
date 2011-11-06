@@ -34,10 +34,11 @@ namespace :db do
       end
     end
     
+    labels = ["John 4:18", "Acts 2:19", "John 3:16", "1 Corinthians 1:2"]
+    
     3.times do 
-      BulletPoint.all(:limit => 100).each do |bullet_point|
-        bullet_point.bible_verses.create!( {:label => Faker::Lorem.sentence(1),
-                                            :verse_content => Faker::Lorem.sentence(3)})
+      BulletPoint.all(:limit => 120).each do |bullet_point|
+        bullet_point.bible_verses.create!( :label => labels[rand(labels.length)] )
       end
     end
     

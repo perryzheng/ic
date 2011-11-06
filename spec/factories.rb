@@ -25,3 +25,9 @@ Factory.define :bullet_point do |bullet_point|
   bullet_point.bullet_point_content ""
   bullet_point.association :lesson
 end
+
+Factory.define :bible_verse do |bible_verse|
+  bible_verse.label "Acts 11:18"
+  bible_verse.verse_content "When they heard these things they became silent"
+  bible_verse.association :bullet_point
+end

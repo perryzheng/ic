@@ -26,6 +26,16 @@ describe BulletPoint do
     end
   end
 
+  describe "bible_verse associations" do
+    before(:each) do
+      @bullet_point = BulletPoint.create(@attr)
+    end
+    
+    it "should have a bible_verses attribute" do
+      @bullet_point.should respond_to(:bible_verses)
+    end
+  end
+  
   describe "validations" do
     it "should require a lesson id" do
       BulletPoint.new(@attr).should_not be_valid

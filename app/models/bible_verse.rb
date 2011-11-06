@@ -1,5 +1,10 @@
 class BibleVerse < ActiveRecord::Base
   attr_accessible :verse_content, :label
+  
+  belongs_to :bullet_point
+  
+  validates :label, :presence => true
+  validates :bullet_point_id, :presence => true
 end
 
 # == Schema Information

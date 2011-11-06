@@ -3,7 +3,7 @@
 	<li>
 		<a href="<%= feed_item.user %>">
 		<%= gravatar_for feed_item.user, :size => 80 %>
-		<h3><%= feed_item.user.name %>
+		<h3><%= feed_item.user.name %>: 
 		<%= feed_item.content %></h3>
 		<p>Posted <%= time_ago_in_words(feed_item.created_at) %> ago.</p>
 		</a>

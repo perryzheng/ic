@@ -157,22 +157,11 @@ describe LessonsController do
          flash[:success].should =~ /lesson created/i
        end
        
-       it "should take the attr with lists" do
-         @attr = {"title"=>"awesome", 
-                  "lesson_content"=>"man",
-                  "bullet_points_attributes"=>
-                              {"0"=>{"header"=>"ae",      
-                               "bible_verses_attributes" => 
-                                                        {"0"=> {"label"=>"John 3:18"}
-                                                        }
-                                    }
-                               }
-                  }                        
-         
+       it "should take the attr as lists" do
+         @attr = {"title"=>"Sample Lesson", "lesson_content"=>"God is sovereign", "bullet_points_attributes"=>{"0"=>{"header"=>"Header is cool", "bible_verses_attributes"=>{"0"=>{"label"=>"John 3:17"}}}}}                       
          post :create, :lesson => @attr
          flash[:success].should =~ /lesson created/i
-         
-         response.should be_success
+         response.should redirect_to(lesson_path(assigns(:lesson)))
        end
         
      end  #end of 'success'

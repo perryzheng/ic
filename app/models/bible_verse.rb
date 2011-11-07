@@ -1,11 +1,8 @@
 class BibleVerse < ActiveRecord::Base
   attr_accessible :verse_content, :label
-  
   belongs_to :bullet_point
-  
   validates :label, :presence => true
-  validates :bullet_point_id, :presence => true
-  
+  #validates :bullet_point_id, :presence => true #makes the nested form create fail
   before_create :get_verse_content_via_web_service
   
   def get_verse_content_via_web_service
@@ -13,8 +10,8 @@ class BibleVerse < ActiveRecord::Base
   end
   
   def get_passage(label)
-    label_without_spaces = remove_all_spaces(label)
-    xml = Passage.get("http://api.preachingcentral.com/bible.php?passage=#{label_without_spaces}&version=kjv")
+    cleansed_label = cleanse(label)
+    xml = Passage.get("http://api.preachingcentral.com/bible.php?passage=#{cleansed_label}&version=kjv")
     if xml['bible']['error'] != nil
       return "There is an error getting this verse"
     end
@@ -25,6 +22,17 @@ class BibleVerse < ActiveRecord::Base
   
   def remove_all_spaces(str)
     str.gsub(/\s+/, "")
+  end
+  
+  def cleanse(str)
+    @mapped_labels = {"psalm" => "psalms"}
+    str_without_spaces = remove_all_spaces(str).downcase
+    @mapped_labels.each do |label, better_label|
+      if str_without_spaces.include?(label)
+        return str_without_spaces.gsub(label, better_label)
+      end
+    end
+    return str_without_spaces
   end
 
   

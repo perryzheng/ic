@@ -1,10 +1,7 @@
 class Lesson < ActiveRecord::Base
-  # attr_accessible :title, :lesson_content, :bullet_points_attributes
-  
+  attr_accessible :title, :lesson_content, :bullet_points_attributes
   has_many :bullet_points
-  
   accepts_nested_attributes_for :bullet_points, :allow_destroy => true
-  
   validates :title, :presence => true
 end
 

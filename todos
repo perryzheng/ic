@@ -182,3 +182,14 @@ Add toggling ability
 Add ability to add a lesson
 1. 
 
+{"title"=>"Sample Lesson", "lesson_content"=>"God is sovereign", "bullet_points_attributes"=>{"0"=>{"header"=>"Header is cool", "bible_verses_attributes"=>{"0"=>{"label"=>"John 3:17"}}}}}
+
+
+
+
+
+
+
+
+
+

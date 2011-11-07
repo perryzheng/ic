@@ -37,14 +37,14 @@ describe BulletPoint do
   end
   
   describe "validations" do
-    it "should require a lesson id" do
-      BulletPoint.new(@attr).should_not be_valid
-    end
+    # it "should require a lesson id" do
+    #       BulletPoint.new(@attr).should_not be_valid
+    # end
     
     it "should require nonblank header" do
-      @lesson.bullet_points.build(:header => "   ").should_not be_valid
-    end
-    
+          @lesson.bullet_points.build(:header => "   ").should_not be_valid
+        end
+
   end
 end
 

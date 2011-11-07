@@ -15,6 +15,16 @@ describe Lesson do
     no_title_lesson.should_not be_valid
   end
   
+  describe "nested forms" do
+    it "should be valid" do
+      @attr = {"title"=>"Sample Lesson", "lesson_content"=>"God is sovereign", "bullet_points_attributes"=>{"0"=>{"header"=>"Header is cool", "bible_verses_attributes"=>{"0"=>{"label"=>"John 3:17"}}}}}                       
+      
+      lesson = Lesson.create(@attr)
+      lesson.should be_valid
+    end
+    
+  end
+  
   describe "bullet point associations" do
     before(:each) do
       @lesson = Lesson.create(@attr)

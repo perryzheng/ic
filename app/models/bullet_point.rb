@@ -1,13 +1,12 @@
 class BulletPoint < ActiveRecord::Base
-  # attr_accessible :header, :bullet_point_content, :bible_verses_attributes
-  
+  attr_accessible :header, :bullet_point_content, :bible_verses_attributes
   belongs_to :lesson
   has_many :bible_verses, :dependent => :destroy
   
   accepts_nested_attributes_for :bible_verses, :allow_destroy => true
   
   validates :header, :presence => true
-  validates :lesson_id, :presence => true
+  #validates :lesson_id, :presence => true
 end
 
 # == Schema Information

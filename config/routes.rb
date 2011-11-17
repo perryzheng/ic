@@ -1,4 +1,12 @@
 SampleApp::Application.routes.draw do
+  get "chapters_controller/index"
+
+  get "chapters_controller/new"
+
+  get "chapters_controller/edit"
+
+  get "chapters_controller/show"
+
   get "lessons/show"
 
   resources :users

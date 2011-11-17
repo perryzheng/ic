@@ -43,6 +43,7 @@ describe Lesson do
 
 end
 
+
 # == Schema Information
 #
 # Table name: lessons
@@ -52,5 +53,6 @@ end
 #  lesson_content :text
 #  created_at     :datetime
 #  updated_at     :datetime
+#  chapter_id     :integer
 #
 

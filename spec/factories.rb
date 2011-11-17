@@ -18,6 +18,12 @@ end
 Factory.define :lesson do |lesson|
   lesson.lesson_content "Turning from a life of sin to serve God.."
   lesson.title "Repentance From Dead Works"
+  lesson.association :chapter
+end
+
+Factory.define :chapter do |chapter|
+  chapter.content "This could be blank.."
+  chapter.title "LAYING A STRONG FOUNDATION ON THE ROCK OF GOD'S WORD"
 end
 
 Factory.define :bullet_point do |bullet_point|

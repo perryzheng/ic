@@ -1,0 +1,13 @@
+<div class="fields">
+<h4>Lesson</h4>
+<p><%= f.label :title, "Title" %>
+	<%= link_to_remove_fields "remove", f%><br />
+	<%= f.text_field :title %>
+</p>
+
+<%= f.fields_for :bullet_points do |bullet_point| %>
+	<%= render 'lessons/bullet_point_fields', :f => bullet_point %>
+<% end %>
+<p class="label"><%= link_to_add_fields "Add One More Bullet Point", f, :bullet_point, "add_fields" %></p>
+<hr />
+</div>

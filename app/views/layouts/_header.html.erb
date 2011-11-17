@@ -1,14 +1,14 @@
 <div data-role="header" data-theme="b">
 	<% if signed_in? %>
-		<%= link_to "", root_path, "class" => "ui-btn-left", "data-icon" => "home", "data-iconpos"=>"notext" %>	
+		<%= link_to "", root_path, "class" => "ui-btn-left", "data-icon" => "home", "data-iconpos"=>"notext", "data-ajax"=>"false" %>	
 	<% else %>
-		<%= link_to "", root_path, "class" => "ui-btn-left", "data-icon" => "home",  "data-iconpos"=>"notext"%>
+		<%= link_to "", root_path, "class" => "ui-btn-left", "data-icon" => "home",  "data-iconpos"=>"notext", "data-ajax"=>"false" %>
 	<% end %>
 	<h1>ICOM</h1>
 	<% if signed_in? %>
-		<%= link_to "", edit_user_path(current_user), "class" => "ui-btn-right", "data-icon"=>"gear", "data-iconpos"=>"notext" %>
+		<%= link_to "", edit_user_path(current_user), "class" => "ui-btn-right", "data-icon"=>"gear", "data-iconpos"=>"notext", "data-ajax"=>"false" %>
 	<% else %>
-		<%= link_to "", signin_path, "class" => "ui-btn-right", "data-icon"=>"sign-in", "data-iconpos"=>"notext"%>
+		<%= link_to "", signin_path, "class" => "ui-btn-right", "data-icon"=>"sign-in", "data-iconpos"=>"notext", "data-ajax"=>"false" %>
 	<% end %>
 </div>
 

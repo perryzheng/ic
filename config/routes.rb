@@ -1,18 +1,9 @@
 SampleApp::Application.routes.draw do
-  get "chapters_controller/index"
-
-  get "chapters_controller/new"
-
-  get "chapters_controller/edit"
-
-  get "chapters_controller/show"
-
-  get "lessons/show"
-
   resources :users
   resources :sessions,      :only => [:new, :create, :destroy]
   resources :microposts,    :only => [:create, :destroy]
   resources :lessons
+  resources :chapters
   resources :bullet_points, :only => [:create, :destroy]
   resources :bible_verses,  :only => [:create, :destroy]
   

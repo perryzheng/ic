@@ -1,1 +1,9 @@
-show
+<h1><%= @chapter.title %></h1>
+<a href="<%= edit_chapter_path(@chapter) %>" data-role="button" data-icon="grid">Edit this chapter</a>
+<p><%= @chapter.content %></p>
+<% unless @lessons.empty? %>
+<ol data-role="listview" data-theme="c">
+   	<%= render @lessons %>
+	<%= will_paginate @lessons %>
+</ol>
+<% end %>

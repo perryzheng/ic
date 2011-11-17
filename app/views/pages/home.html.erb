@@ -1,7 +1,9 @@
 <% if signed_in? %>
 	<%= render 'shared/user_info' %>
+	<br />
 	<h1>What's up?</h1>
 	<%= render 'shared/micropost_form' %>
+	<h3><a href="<%= lessons_path %>">See all City Group Lessons</a></h3>
 	<%= render 'shared/feed' %>
 <% else %>
 	<h1>Welcome to International Community!</h1>

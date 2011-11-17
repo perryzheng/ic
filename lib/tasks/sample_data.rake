@@ -23,10 +23,22 @@ namespace :db do
       end
     end
     
-    10.times do
-      Lesson.create!(:title => Faker::Lorem.sentence(2),
-                     :lesson_content => Faker::Lorem.sentence(5))
+    3.times do
+      Chapter.create!(:title => Faker::Lorem.sentence(2),
+                     :content => Faker::Lorem.sentence(5))
     end
+    
+    10.times do
+      Chapter.all(:limit => 6).each do |chapter|
+        chapter.lessons.create!( {:title => Faker::Lorem.sentence(2),
+                                  :lesson_content => Faker::Lorem.sentence(5) } )
+      end
+    end
+    
+    # 10.times do
+    #   Lesson.create!(:title => Faker::Lorem.sentence(2),
+    #                  :lesson_content => Faker::Lorem.sentence(5))
+    # end
     
     50.times do
       Lesson.all(:limit => 6).each do |lesson|
@@ -37,7 +49,7 @@ namespace :db do
     labels = ["John 4:18", "Acts 2:19", "John 3:16", "1 Corinthians 1:2"]
     
     3.times do 
-      BulletPoint.all(:limit => 120).each do |bullet_point|
+      BulletPoint.all(:limit => 10).each do |bullet_point|
         bullet_point.bible_verses.create!( :label => labels[rand(labels.length)] )
       end
     end

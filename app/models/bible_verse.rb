@@ -4,6 +4,7 @@ class BibleVerse < ActiveRecord::Base
   validates :label, :presence => true
   #validates :bullet_point_id, :presence => true #makes the nested form create fail
   before_create :get_verse_content_via_web_service
+  before_save :get_verse_content_via_web_service
   
   def get_verse_content_via_web_service
     self.verse_content = get_passage(self.label)
@@ -15,9 +16,18 @@ class BibleVerse < ActiveRecord::Base
     if xml['bible']['error'] != nil
       return "There is an error getting this verse"
     end
-    return xml['bible']['range']['item']['text']
+    items = xml['bible']['range']['item']
+    if items.instance_of? Hash
+      return items['text']
+    end
+    res = ""
+    items.each do |item|
+      puts item['text']
+      res += item['text'] + " "
+    end
+    return res.strip()
   rescue
-    return "Not able to get this verse: #{$!}"
+    return "Not able to get this verse: #{$!}" 
   end
   
   def remove_all_spaces(str)

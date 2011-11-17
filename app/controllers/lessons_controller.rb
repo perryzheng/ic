@@ -1,5 +1,10 @@
 class LessonsController < ApplicationController
-  before_filter :authenticate, :only => [:new,  :create, :destroy]
+  before_filter :authenticate, :only => [:new,  :create, :destroy, :index]
+  
+  def index  
+    @title = "All Lessons"
+    @lessons = Lesson.paginate(:page => params[:page])
+  end
   
   def show
     @lesson = Lesson.find(params[:id])
@@ -20,22 +25,14 @@ class LessonsController < ApplicationController
   def new
     @lesson = Lesson.new
     @title = "Create a new lesson"
-    if signed_in?
-        1.times do
-          bullet_points = @lesson.bullet_points.build
-          1.times { bible_verses = bullet_points.bible_verses.build }
-        end
+    1.times do
+      bullet_point = @lesson.bullet_points.build
+      1.times { bullet_point.bible_verses.build }
     end
   end
   
   def edit
     @lesson = Lesson.find(params[:id])
-    if signed_in?
-       1.times do
-         bullet_point = @lesson.bullet_points.build
-           1.times { bullet_point.bible_verses.build }
-       end
-    end
   end
 
   def update

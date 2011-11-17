@@ -1,0 +1,9 @@
+<li>
+<a href="<%= lesson_path(lesson) %>">
+	<h3><%= lesson.title %></h3>
+</a>
+<% if current_user.admin? %>
+   	<a href="<%= lesson_path(lesson) %>" title="Delete" data-method="delete" data-confirm="You sure" data-theme="c">
+    </a>
+<% end %>
+</li>

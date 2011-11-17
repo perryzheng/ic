@@ -1,11 +1,11 @@
 <br />
-<ul data-role="listview" data-split-theme="d" data-split-icon="delete">
+<ul data-role="listview" data-theme="c">
 	<li>
 		<a href="<%= feed_item.user %>">
 		<%= gravatar_for feed_item.user, :size => 80 %>
-		<span class="oi-li-heading"><%= feed_item.user.name %>: 
+		<span class="oi-li-heading wrapword"><%= feed_item.user.name %>: 
 		<%= feed_item.content %></span>
-		<span class="oi-li-desc">Posted <%= time_ago_in_words(feed_item.created_at) %> ago.</span>
+		<span class="oi-li-desc wrapword">Posted <%= time_ago_in_words(feed_item.created_at) %> ago.</span>
 		</a>
 		<% if current_user?(feed_item.user) %>
 			<%= link_to "delete", feed_item, :method => :delete,

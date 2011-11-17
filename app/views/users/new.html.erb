@@ -1,6 +1,6 @@
 <h1>Sign up</h1>
 
-<%= form_for(@user) do |f|	%>
+<%= form_for(@user, :html => { "data-ajax"=>"false" } ) do |f|	%>
 	<%= render 'shared/error_messages', :object => f.object %>
 	<p><%= f.label :name, "Full Name" %><br />
 	<%= f.text_field :name %></p>

@@ -51,6 +51,12 @@
 	margin: 1em 0 1em 3em;
 }
 
+.mp3-url {
+	font-size:1.2em;
+	font-weight:normal;
+	margin: 1em 0 1em 0;
+}
+
 .verse-label {
 	font-size: 1.2em;
 	font-weight: bold;

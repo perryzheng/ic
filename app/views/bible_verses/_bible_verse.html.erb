@@ -1,18 +1,23 @@
 <br />
 <span class="verse-content" style="display:none;" onclick="toggleVerse(this);"><%= bible_verse.verse_content %>
-<% unless bible_verse.mp3_url.blank? %>
-<a href="<%= bible_verse.mp3_url %>" data-theme="c" target="_blank" data-role="button" data-icon="start" data-inline="true">Listen</a>
-<% end %>
 </span>
+<% unless bible_verse.mp3_url.blank? %>
+<span class="mp3-url" style="display:none;">
+<a href="<%= bible_verse.mp3_url %>" no-click="true" onclick="javascript:void(0);" data-theme="c" target="_blank" data-role="button" data-icon="start" data-inline="true">Listen</a>
+</span>
+<% end %>
 <span class="verse-label"><a src="#" onclick="toggleLabel(this);"><%= bible_verse.label %></a></span>
 <br />
 
 <script>
 function toggleLabel(obj){
 	$(obj).parent().prev().toggle();
+	$(obj).parent().prev().prev().toggle();
 }
 
 function toggleVerse(obj) {
 	$(obj).toggle();
+	$(obj).next().toggle();
 }
+
 </script>

@@ -59,6 +59,7 @@ describe BibleVerse do
   
 end
 
+
 # == Schema Information
 #
 # Table name: bible_verses
@@ -69,5 +70,6 @@ end
 #  bullet_point_id :integer
 #  created_at      :datetime
 #  updated_at      :datetime
+#  mp3_url         :string(255)
 #
 

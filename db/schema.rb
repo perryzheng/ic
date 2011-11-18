@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111117003734) do
+ActiveRecord::Schema.define(:version => 20111118082921) do
 
   create_table "bible_verses", :force => true do |t|
     t.text     "verse_content"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20111117003734) do
     t.integer  "bullet_point_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mp3_url"
   end
 
   create_table "bullet_points", :force => true do |t|

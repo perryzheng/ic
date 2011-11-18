@@ -1,5 +1,9 @@
 <br />
-<span class="verse-content" style="display:none;" onclick="toggleVerse(this);"><%= bible_verse.verse_content %></span>
+<span class="verse-content" style="display:none;" onclick="toggleVerse(this);"><%= bible_verse.verse_content %>
+<% unless bible_verse.mp3_url.blank? %>
+<a href="<%= bible_verse.mp3_url %>" data-theme="c" target="_blank" data-role="button" data-icon="start" data-inline="true">Listen</a>
+<% end %>
+</span>
 <span class="verse-label"><a src="#" onclick="toggleLabel(this);"><%= bible_verse.label %></a></span>
 <br />
 

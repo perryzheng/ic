@@ -1,5 +1,5 @@
 class BibleVerse < ActiveRecord::Base
-  attr_accessible :verse_content, :label
+  attr_accessible :verse_content, :label, :mp3_url
   belongs_to :bullet_point
   validates :label, :presence => true
   #validates :bullet_point_id, :presence => true #makes the nested form create fail
@@ -12,11 +12,16 @@ class BibleVerse < ActiveRecord::Base
   
   def get_verse_content_via_web_service_esv
     self.verse_content = get_passage_esv(self.label)
+    self.mp3_url = get_mp3_url_esv(self.label)
   end
 
   def get_passage_esv(passage)
     @bible = ESV.new('IP')
-    @bible.doPassageQuery(passage).strip + " <a href=\'" + @bible.doMP3Query(passage).strip + "\'></a>"
+    @bible.doPassageQuery(passage).strip
+  end
+  
+  def get_mp3_url_esv(passage)
+    @bible.doMP3Query(passage).strip
   end
   
   def get_passage_kjv(label)
@@ -57,6 +62,7 @@ class BibleVerse < ActiveRecord::Base
   
 end
 
+
 # == Schema Information
 #
 # Table name: bible_verses
@@ -67,5 +73,6 @@ end
 #  bullet_point_id :integer
 #  created_at      :datetime
 #  updated_at      :datetime
+#  mp3_url         :string(255)
 #
 

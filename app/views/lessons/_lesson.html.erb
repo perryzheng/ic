@@ -1,6 +1,9 @@
 <li>
 <a href="<%= lesson_path(lesson) %>">
-	<h3><%= lesson.title %></h3>
+	<span class="oi-li-heading"><%= lesson.title %></span>
+	<span class="oi-li-desc">
+     Posted <%= time_ago_in_words(lesson.created_at) %> ago.
+   </span>
 </a>
 <% if current_user.admin? %>
    	<a href="<%= lesson_path(lesson) %>" title="Delete" data-method="delete" data-confirm="You sure" data-theme="c">

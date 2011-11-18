@@ -94,7 +94,7 @@ describe LessonsController do
         @attr = { :title => "non-empty", :lesson_content => "something"}
       end
 
-      it "should change the user's attributes" do
+      it "should change the lesson's attributes" do
         put :update, :id => @lesson, :lesson => @attr
         @lesson.reload
         @lesson.title.should  == @attr[:title]

@@ -1,2 +1,10 @@
-<h1>ChaptersController#index</h1>
-<p>Find me in app/views/chapters_controller/index.html.erb</p>
+<h1>All Chapters</h1>
+<a href="<%= new_chapter_path %>" data-ajax="false" data-role="button" data-icon="plus">Add a new chapter</a>
+
+<%= will_paginate %>
+
+<ul data-role="listview" data-split-theme="d" data-split-icon="delete">
+  <%= render @chapters %>
+</ul>
+
+<%= will_paginate %>

@@ -1,0 +1,12 @@
+<li>
+<a href="<%= chapter_path(chapter) %>">
+	<span class="oi-li-heading"><%= chapter.title %></span>
+	<span class="oi-li-desc">
+     Posted <%= time_ago_in_words(chapter.created_at) %> ago.
+   </span>
+</a>
+<% if current_user.admin? %>
+   	<a href="<%= chapter_path(chapter) %>" title="Delete" data-method="delete" data-confirm="You sure" data-theme="c">
+    </a>
+<% end %>
+</li>

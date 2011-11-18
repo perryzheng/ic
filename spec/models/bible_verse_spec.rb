@@ -41,19 +41,19 @@ describe BibleVerse do
     it "should be able to get verse_content from label" do
       bible_verse = @bullet_point.bible_verses.create(@attr.merge(:verse_content => ""))
       bible_verse.label.should =~ /John 3:16/i
-      bible_verse.verse_content.should =~ /For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life./i
+      bible_verse.verse_content.should =~ /\"For God so loved the world, that he gave his only Son, that whoever \nbelieves in him should not perish but have eternal life./i
     end
     
     it "should get for phillipians" do
       bible_verse = @bullet_point.bible_verses.create(@attr.merge(:label => "1 Corinthians 1:2"))
       bible_verse.label.should =~ /1 Corinthians 1:2/i
-      bible_verse.verse_content.should =~ /Unto the church of God which is at Corinth, to them that are sanctified in Christ Jesus, called to be saints, with all that in every place call upon the name of Jesus Christ our Lord, both theirs and ours:/i
+      bible_verse.verse_content.should =~ /To the church of God that is in Corinth, to those sanctified in Christ \nJesus, called to be saints together with all those who in every place \ncall upon the name of our Lord Jesus Christ, both their Lord and ours:/i
     end
     
     it "should convert psalm to psalms" do
       bible_verse = @bullet_point.bible_verses.create(@attr.merge(:label => "Psalm 87:1"))
       bible_verse.label.should =~ /Psalm 87:1/i
-      bible_verse.verse_content.should =~ /His foundation is in the holy mountains/i
+      bible_verse.verse_content.should =~ /On the holy mount stands the city he founded;/i
     end
   end
   

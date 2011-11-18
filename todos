@@ -191,7 +191,22 @@ Add ability to add a lesson
 
 
 <a href="<%= user_path(feed_item.user) %>">		
-
+@options = ["output-format=plain-text",
+        "include-passage-horizontal-lines=0",
+        "include-heading-horizontal-lines=0",
+        "include-passage-references=0",
+        "include-first-verse-numbers=0",
+        "include-verse-numbers=0",
+        "include-footnotes=0",
+        "include-short-copyright=0",
+        "include-copyright=0",
+        "include-headings=0",
+        "include-subheadings=0",
+        "include-selahs=0",
+        "include-content-type=0",
+        "include-surrounding-chapters=0",
+        "include-word-ids=0",        
+        ].join("&")
 
 
 

@@ -3,14 +3,23 @@ class BibleVerse < ActiveRecord::Base
   belongs_to :bullet_point
   validates :label, :presence => true
   #validates :bullet_point_id, :presence => true #makes the nested form create fail
-  before_create :get_verse_content_via_web_service
-  before_save :get_verse_content_via_web_service
+  before_create :get_verse_content_via_web_service_esv
+  before_save :get_verse_content_via_web_service_esv
   
-  def get_verse_content_via_web_service
-    self.verse_content = get_passage(self.label)
+  def get_verse_content_via_web_service_kjv
+    self.verse_content = get_passage_kjv(self.label)
   end
   
-  def get_passage(label)
+  def get_verse_content_via_web_service_esv
+    self.verse_content = get_passage_esv(self.label)
+  end
+
+  def get_passage_esv(passage)
+    @bible = ESV.new('IP')
+    @bible.doPassageQuery(passage).strip + " <a href=\'" + @bible.doMP3Query(passage).strip + "\'></a>"
+  end
+  
+  def get_passage_kjv(label)
     cleansed_label = cleanse(label)
     xml = Passage.get("http://api.preachingcentral.com/bible.php?passage=#{cleansed_label}&version=kjv")
     if xml['bible']['error'] != nil

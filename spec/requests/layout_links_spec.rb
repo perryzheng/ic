@@ -34,8 +34,8 @@ describe "LayoutLinks" do
     # response.should have_selector('title', :content => "Contact")
     click_link ""
     response.should have_selector('title', :content => "Home")
-    click_link "Sign up now!"
-    response.should have_selector('title', :content => "Sign up")
+    # click_link "Sign up now!"
+    # response.should have_selector('title', :content => "Sign up")
   end
   
   describe "when not signed in" do

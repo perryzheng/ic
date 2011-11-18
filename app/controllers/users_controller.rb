@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to International Community, #{@user.name}! Please tell us more about you by clicking on gear button at the top right corner."
-      redirect_to @user
+      redirect_to root_path
     else
       @user.password = ""
       @user.password_confirmation = ""

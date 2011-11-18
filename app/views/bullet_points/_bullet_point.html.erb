@@ -1,10 +1,10 @@
  <li>
-   <span class="heading"><%= bullet_point.header %></span>
-   <span class="time-ago">
-     Posted <%= time_ago_in_words(bullet_point.created_at) %> ago.
-   </span>
-	
+   	<span class="heading"><%= bullet_point.header %></span>
+   	<span class="time-ago">
+    	Posted <%= time_ago_in_words(bullet_point.created_at) %> ago.
+   	</span>
+	<div class="bullet-point-time"></div>
 	<% unless bullet_point.bible_verses.empty? %>
-  	<%= render bullet_point.bible_verses %>
-<% end %>
+  		<%= render bullet_point.bible_verses %>
+	<% end %>
  </li>

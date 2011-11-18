@@ -12,6 +12,10 @@
     margin: -.5em 0 .6em;
 }
 
+.bullet-point-time {
+	margin: 0.1em 0 -.6em 0;
+}
+
 .oi-li-name {
     font-size: 1em;
     margin: 1em 1em 1em -4em;

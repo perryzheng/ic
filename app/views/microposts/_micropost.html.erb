@@ -1,9 +1,10 @@
-<ul data-role="listview" data-theme="c">
+<ul data-role="listview" data-split-theme="d" data-split-icon="delete">
   <li>
-    <h4><%= micropost.content %></h4>
-    <p>
+	<a href="javascript:void(0);">
+    <p class="micropost-content wrapword"><%= micropost.content %></p>
+    <p class="time">
       Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-    </p>
+    </p></a>
 	<% if current_user?(micropost.user) %>
 	    <%= link_to "delete", micropost, :method => :delete,
 	                                     :confirm => "You sure?",

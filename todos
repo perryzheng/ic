@@ -190,6 +190,8 @@ Add ability to add a lesson
 
 
 
+<a href="<%= user_path(feed_item.user) %>">		
+
 
 
 

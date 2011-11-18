@@ -1,14 +1,44 @@
 /*jquery improvements*/
-.oi-li-heading {
+.heading {
     font-size: 1.5em;
     font-weight: bold;
     margin: .6em 0;
 }
 
-.oi-li-desc {
-    font-size: 1em;
-    font-weight: normal;
+.time-ago {
+	font-size: 1em;
+    font-style: italic;
+	font-weight: normal;
     margin: -.5em 0 .6em;
+}
+
+.oi-li-name {
+    font-size: 1em;
+    margin: 1em 1em 1em -4em;
+}
+
+.oi-li-twitter-post {
+    font-size: 1em;
+	font-weight: normal;
+    margin: 0.4em 0 -1em -4em;
+}
+
+.oi-li-desc {
+    font-size: 0.8em;
+    font-style: italic;
+	font-weight: normal;
+    margin: 1.2em 0 0 -5em;
+}
+
+.micropost-content {
+	font-size: 1em;
+	font-weight: normal;
+}
+
+.time {
+	font-style: italic;
+	font-weight: normal;
+	margin: 0.3em 0 0 0;
 }
 
 .verse-content {
@@ -168,15 +198,9 @@ td.sidebar {
 	background: #ffc;
 }
 
-.profile img.gravatar {
-	border: 1px solid #999;
-	margin-bottom: -15px;
-	display: inline-block;
-}
-
 img.gravatar {
 	border: 1px solid #999;
-	margin-bottom: -15px;
+	margin-top: .7em;
 	display: inline-block;	
 }
 

@@ -1,7 +1,7 @@
 <li>
 <a href="<%= chapter_path(chapter) %>">
-	<span class="oi-li-heading"><%= chapter.title %></span>
-	<span class="oi-li-desc">
+	<span class="heading"><%= chapter.title %></span>
+	<span class="time-ago">
      Posted <%= time_ago_in_words(chapter.created_at) %> ago.
    </span>
 </a>

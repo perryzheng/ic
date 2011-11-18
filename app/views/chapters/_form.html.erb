@@ -3,11 +3,12 @@
 	<p><%= f.label :title, "Chapter Title" %><br />
 	<%= f.text_field :title %></p>
 
-	<p><%= f.label	:content, "Chapter Introduction" %><br />
+	<p><%= f.label	:content, "Chapter Introduction (if any)" %><br />
 	<%= f.text_area :content %></p>
 
 	<%= f.fields_for :lessons do |lesson| %>
 	<h3>Lessons:</h3>
+	<p>Note: Don't worry if you don't see bullet points and bible verses, you get to create them by going to each individual lesson</p>
 	<hr />
 	<p>	<%= render 'lesson_fields', :f => lesson %></p>
 	<% end %>

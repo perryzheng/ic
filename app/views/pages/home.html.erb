@@ -1,28 +1,9 @@
 <% if signed_in? %>
 	<%= render 'shared/user_info' %>
-	<br />
+	<a href="<%= chapters_path %>" data-icon='grid' data-role='button' >Check out the Disciples Class</a>
 	<h1>What's up?</h1>
 	<%= render 'shared/micropost_form' %>
-	<h3><a href="<%= lessons_path %>">See all City Group Lessons</a></h3>
 	<%= render 'shared/feed' %>
 <% else %>
-	<h1>Welcome to International Community!</h1>
-
-	<p>Do you wanna have fun?</p>
-	<p>… with friends who love to build each other up?</p>
-	<p>… and get to know the U-district as fast as you like?</p>
-	<p>International Community is THE place!</p>
-
-	<p>About fun: we’ve hiked, camped, shopped, canoed, traveled, toured Seattle, learned new languages, fed the hungry.<p>
-
-	<p>About building each other up: we are people who look for people to encourage, teach new skills, practice presentations and resume writing, find a study buddy, have free time that’s worth it.</p>
-
-	<p>IC and the U-district: we are a place not a program.  As a local community, we don’t have to look to far for a good conversation, a helping hand at setting up living situations, and just sharing life.</p>
-
-	<p>Let’s connect!  Please add yourself to the email subscription below.</p>
-	
-	<a data-ajax="false" href='/images/thanksgiving_dinner_kane_hall.jpg'><img src='/images/thanksgiving_dinner_kane_hall.jpg' width='400' height='400'/></a>
-
-	<%= link_to "Sign up now!", signup_path, "data-role"=>"button", "data-ajax"=>"false" %>
-	<br />
+	<% render 'static-home' %>
 <% end %>

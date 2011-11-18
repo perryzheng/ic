@@ -2,7 +2,7 @@ class ESV
   require 'net/http'
     #http://www.esvapi.org/v2/rest/passageQuery?key=IP&passage=John3:15-25&include-short-copyright=0&output-format=plain-text&include-passage-horizontal-lines=0&include-heading-horizontal-lines=0&include-footnotes=0&include-passage-references=0&include-headings=0&include-verse-numbers=0
   def initialize(key)
-    @options = ["include-short-copyright=0",
+    @options = [
                 "output-format=plain-text",
                 "include-passage-horizontal-lines=0",
                 "include-heading-horizontal-lines=0",

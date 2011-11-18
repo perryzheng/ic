@@ -4,6 +4,8 @@ class Lesson < ActiveRecord::Base
   belongs_to :chapter
   accepts_nested_attributes_for :bullet_points, :allow_destroy => true
   validates :title, :presence => true
+  
+  default_scope :order => 'lessons.id'
 end
 
 

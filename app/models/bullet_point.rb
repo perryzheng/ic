@@ -6,6 +6,8 @@ class BulletPoint < ActiveRecord::Base
   accepts_nested_attributes_for :bible_verses, :allow_destroy => true
   
   validates :header, :presence => true
+  
+  default_scope :order => 'bullet_points.id'
   #validates :lesson_id, :presence => true
 end
 

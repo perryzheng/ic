@@ -3,6 +3,8 @@ class Chapter < ActiveRecord::Base
   has_many :lessons
   accepts_nested_attributes_for :lessons, :allow_destroy => true
   validates :title, :presence => true
+  
+  default_scope :order => 'chapters.id'
 end
 
 # == Schema Information

@@ -6,6 +6,8 @@ class BibleVerse < ActiveRecord::Base
   before_create :get_verse_content_via_web_service_esv
   before_save :get_verse_content_via_web_service_esv
   
+  default_scope :order => 'bible_verses.id'
+  
   def get_verse_content_via_web_service_kjv
     self.verse_content = get_passage_kjv(self.label)
   end

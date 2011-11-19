@@ -3,6 +3,11 @@ function remove_fields(link) {
   $(link).closest(".fields").hide();
 }
 
+function remove_bullet_point_content(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".bullet-point").hide();	
+}
+
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
   var regexp = new RegExp("new_" + association, "g")

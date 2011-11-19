@@ -4,6 +4,9 @@
 	<%= link_to_remove_fields "remove", f%><br />
 	<%= f.text_field :header %>
 </p>
+<p><%= f.label :bullet_point_content, "Notes for this bullet point (can be blank)" %><br />
+	<%= f.text_area :bullet_point_content %>
+</p>
 
 <%= f.fields_for :bible_verses do |bible_verse| %>
 	<%= render 'bible_verse_fields', :f => bible_verse %>

@@ -1,9 +1,9 @@
 <h1><%= @lesson.title %></h1>
+<p><%= @lesson.lesson_content %></p>
 <div data-role="controlgroup">
 	<a href="<%= chapter_path(@lesson.chapter) %>" data-role="button" data-icon="back">Back to chapter</a>
 	<a href="<%= edit_lesson_path(@lesson) %>" data-role="button" data-icon="grid">Edit this lesson</a>
 </div>
-<p><%= @lesson.lesson_content %></p>
 <% unless @bullet_points.empty? %>
 <ol data-role="listview" data-theme="c">
    	<%= render @bullet_points %>

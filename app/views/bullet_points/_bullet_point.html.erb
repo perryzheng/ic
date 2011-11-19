@@ -3,8 +3,16 @@
    	<span class="time-ago">
     	Posted <%= time_ago_in_words(bullet_point.created_at) %> ago.
    	</span>
+	<% unless bullet_point.bullet_point_content.blank? %>
+	<br />
+	<div class="bullet-point">
+   	<span class="bullet-point-content"><%= bullet_point.bullet_point_content.html_safe %></span>
+	</div>
+	<% end %>
 	<div class="bullet-point-time"></div>
 	<% unless bullet_point.bible_verses.empty? %>
+		<div class="bible-verse">
   		<%= render bullet_point.bible_verses %>
+		</div>
 	<% end %>
  </li>

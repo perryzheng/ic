@@ -45,10 +45,17 @@
 	margin: 0.3em 0 0 0;
 }
 
-.verse-content {
+.bullet-point-content {
 	font-size:1.2em;
 	font-weight:normal;
-	margin: 1em 0 1em 3em;
+}
+
+.bullet-point {
+	margin: 0.5em 0 0 0;
+}
+
+.bible-verse {
+	margin: 0.5em 0 0 0;
 }
 
 .mp3-url {
@@ -60,8 +67,14 @@
 .verse-label {
 	font-size: 1.2em;
 	font-weight: bold;
-	margin: 1em 0;
 }
+
+.verse-content {
+	font-size:1.2em;
+	font-weight:normal;
+	margin: 1em 0 1em 3em;
+}
+
 
 .bullet-point-header {
 	font-weight: bold;

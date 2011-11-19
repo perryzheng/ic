@@ -6,9 +6,9 @@
 	<p><%= f.label	:lesson_content %><br />
 	<%= f.text_area :lesson_content %></p>
 
-	<%= f.fields_for :bullet_points do |bullet_point| %>
 	<h3>Bullet Points:</h3>
 	<hr />
+	<%= f.fields_for :bullet_points do |bullet_point| %>
 	<p>	<%= render 'bullet_point_fields', :f => bullet_point %></p>
 	<% end %>
 	<%= link_to_add_fields "Add One More Bullet Point", f, :bullet_points, "add_fields_bullet_point" %>

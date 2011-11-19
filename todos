@@ -208,5 +208,4 @@ Add ability to add a lesson
         "include-word-ids=0",        
         ].join("&")
 
-
-
+		<a data-ajax="false" href='/images/thanksgiving_dinner_kane_hall.jpg'><img src='/images/thanksgiving_dinner_kane_hall.jpg' width='300' height='300'/></a>

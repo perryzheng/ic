@@ -1,7 +1,7 @@
 <% if signed_in? %>
 	<%= render 'shared/user_info' %>
 	<a href="<%= chapters_path %>" data-icon='grid' data-role='button' >Check out the Disciples Class</a>
-	<h1>What's up?</h1>
+	<h3>What's on your heart?</h3>
 	<%= render 'shared/micropost_form' %>
 	<%= render 'shared/feed' %>
 <% else %>

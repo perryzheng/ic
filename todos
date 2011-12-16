@@ -209,3 +209,9 @@ Add ability to add a lesson
         ].join("&")
 
 		<a data-ajax="false" href='/images/thanksgiving_dinner_kane_hall.jpg'><img src='/images/thanksgiving_dinner_kane_hall.jpg' width='300' height='300'/></a>
+
+
+1. How to delete a branch?
+    git checkout master
+    git branch -D modify-README
+2. 
